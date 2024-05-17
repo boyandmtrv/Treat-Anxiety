@@ -1,5 +1,5 @@
-import { setUserData } from "../util.js";
-import { post } from "./api.js";
+import { clearUserData, setUserData } from "../util.js";
+import { get, post } from "./api.js";
 
 export async function register(email, username, password) {
     const { sessionToken, objectId } = await post('/users', { email, username, password });
@@ -27,4 +27,10 @@ export async function login(email, password) {
     setUserData(userData)
 };
 
+export async function logout() {
+    // const result = get('/logout');
+    
+    clearUserData();
+    // console.log(await result);
+};
 
