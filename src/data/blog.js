@@ -1,18 +1,23 @@
-import { addOwner } from "../util.js";
+import { addOwner, encodeObject, filterRelation } from "../util.js";
 import { del, get, post, put } from "./api.js";
 import { CONFIG } from '../config.js';
 
 const endPoints = {
-    'blogs': '/classes/Blog',
-    'blogById': '/classes/Blog/',
+    'blogs': `/classes/Blog?where=${encodeObject({ readyForRead: true })}&include=owner`,
+    'blogsWithUser': (userId) => `/classes/Blog?where=${encodeObject({ $or: [{ readyForRead: true }, filterRelation('owner', '_User', userId)] })}&include=owner`,
+    'blogById': `/classes/Blog/`,
 };
 
 const SPECIAL_USER_ID = CONFIG.SPECIAL_USER_ID;
 
-
-export async function getAll() {
-    return get(endPoints.blogs)
+export async function getAll(userId) {
+    if (userId) {
+        return get(endPoints.blogsWithUser(userId))
+    } else {
+        return get(endPoints.blogs)
+    }
 }
+
 
 export async function getById(id) {
     return get(endPoints.blogById + id)
