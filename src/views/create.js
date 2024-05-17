@@ -9,6 +9,7 @@ const createTeplate = (onSubmit) => html`
         <label>Name: <input type="text" name="name"></label>
         <label>Author: <input type="text" name="author"></label>
         <label>Blog: <input type="number" name="blogCount"></label>
+        <label>Description: <textarea name="description" placeholder="Description"></textarea></label>
         <button>Create</button>
     </form>
 `
@@ -16,15 +17,15 @@ const createTeplate = (onSubmit) => html`
 export function createView(ctx) {
     ctx.render(createTeplate(submitHandler(onSubmit)));
 
-    async function onSubmit({ name, author, blogCount }) {
+    async function onSubmit({ name, author, blogCount, description }) {
         blogCount = parseInt(blogCount);
-        if (name == '' || author == '' || Number.isNaN(blogCount)) {
+        if (name == '' || author == '' || Number.isNaN(blogCount) || description == '') {
             return alert('All fields are required');
         }
         
         const userId = ctx.user?.objectId;
         
-        const result = await blogService.create({ name, author, blogCount }, userId);
+        const result = await blogService.create({ name, author, blogCount, description }, userId);
 
         ctx.page.redirect('/blogs/' + result.objectId);
     }
