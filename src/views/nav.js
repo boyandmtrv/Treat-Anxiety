@@ -13,7 +13,7 @@ export const navTemplate = (hasUser, userId) => {
             ${userId === SPECIAL_USER_ID
         ? html`<a href="/create">Create</a>`
         : ''}
-            <a href="javascript:void(0)">Logout</a>`
+            <a href="/logout">Logout</a>`
         : html`
             <a href="/register">Register</a>
             <a href="/login">Login</a>
