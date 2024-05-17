@@ -1,16 +1,11 @@
-import { html } from "../lib/lit-html.js";
- 
+import { html } from '../lib/lit-html.js';
+
 const homeTemplate = () => html`
+    <h1>Welcome to Treat Anxiety</h1>
+    <p>Your are not your thoughts</p>
+    <p>check out latest blogs <a href="/blogs">all blogs</a></p>
+`;
 
-<section class="home" id="home">
-        <!-- <div class="btn-box">
-            <a href="/create" class="btn">Create</a>
-            <a href="/blogs" class="btn">Blogs</a>
-        </div> -->
-    </div>
-</section>
-`; 
-
-export function homeView(ctx) {
+export async function homeView(ctx) {
     ctx.render(homeTemplate());
 };
