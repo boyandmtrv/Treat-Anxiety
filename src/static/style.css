@@ -1,4 +1,6 @@
-/* .rating {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.rating {
     display: inline-block;
     direction: rtl;
     font-size: 2rem;
@@ -28,7 +30,7 @@
 .rating>input {
     position: absolute;
     left: -9999px;
-} */
+}
 
 body {
     background: url('../img/HD-wallpaper-iceberg-minimalist.jpg');
@@ -36,7 +38,9 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
 }
+
 @media (max-width: 991px) {
     .sidebar {
         background-color: rgba(255, 255, 255, 0.15);
@@ -44,3 +48,196 @@ body {
     }
 }
 
+/* register */
+.bg-holder {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.btn {
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.btn i {
+    vertical-align: text-top;
+}
+
+.divider-content-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: .5rem;
+    padding-right: .5rem;
+    background-color: transparent;
+    font-size: .8rem;
+    font-weight: 500;
+    color: #999;
+}
+
+.divider {
+    margin: 2rem 0;
+}
+
+.btn-outline-custom {
+    color: #313131;
+    border-color: #fff;
+}
+
+.btn-outline-custom:hover {
+    color: #313131;
+    border-color: #eee;
+    background-color: #eee;
+}
+
+/* Blogs */
+
+.blogs .carousel-item {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.blogs .carousel-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+.blogs .carousel-item .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.blogs .carousel-item h2 {
+    font-size: 80px;
+    color: #fff;
+    margin: 0 0 10px;
+    opacity: 0;
+}
+
+.blogs .carousel-item p {
+    font-size: 30px;
+    margin: 0;
+    color: #eee;
+    opacity: 0;
+}
+
+.blogs .carousel-item.active h2 {
+    animation: fadeInLeft .5s ease forwards;
+} 
+
+.blogs .carousel-item.active p {
+    animation: fadeInRight .5s ease forwards;
+} 
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeInRight{
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.blogs .carousel-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.blogs .carousel-indicators {
+    position: relative;
+    margin: 0;
+}
+
+.blogs .carousel-indicators button {
+    height: 70px;
+    width: 70px;
+    margin: 0 5px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    border: 3px solid transparent;
+    transition: all .3s ease;
+}
+
+.blogs .carousel-indicators button.active {
+    border-color: #fff;
+    transform: scale(1.2);
+}
+
+.blogs .carousel-control-prev,
+.blogs .carousel-control-next {
+    height: 60px;
+    width: 60px;
+
+    opacity: 1;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: all .3 ease;
+}
+
+.blogs .carousel-control-prev:hover,
+.blogs .carousel-control-next:hover {
+    box-shadow: 0 0 10px #fff;
+    transition: all .3 ease-in-out;
+}
+
+.blogs .carousel-control-prev i,
+.blogs .carousel-control-next i {
+    width: 30px;
+}
+
+.blogs .carousel-control-next {
+    right: -90px;
+}
+
+.blogs .carousel-control-prev {
+
+    left: -90px;
+}
+
+@media (max-width: 767px) {
+     .blogs .carousel-control-next, .blogs .carousel-control-prev {
+        display: none;
+    }
+
+    .blogs .carousel-indicators button {
+        height: 50px;
+        width: 50px;
+    }
+}
