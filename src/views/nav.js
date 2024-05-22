@@ -7,7 +7,7 @@ export const navTemplate = (hasUser, userId) => {
     return html`
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
             <div class="container">
-                <a class="navbar-brand fs-4" href="/">Treat Anxiety</a>
+                <a class="navbar-logo navbar-brand fs-4" href="/">Treat  <span>Anxiety</span></a>
                 <button 
                     class="navbar-toggler shadow-none border-0" 
                     type="button" 
