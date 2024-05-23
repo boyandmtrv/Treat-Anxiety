@@ -1,6 +1,5 @@
 import { html } from '../lib/lit-html.js';
 
-
 const homeTemplate = () => html`
     <div class="home">
         <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
