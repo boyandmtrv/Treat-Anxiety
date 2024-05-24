@@ -3,66 +3,96 @@ import { html } from '../lib/lit-html.js';
 import { submitHandler, createPointer } from '../util.js';
 
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
-    <h1>${blog.name}</h1>
-    <p>${blog.author}</p>
-    <p>${blog.blogCount}</p>
-    <p>${blog.description}</p>
-    ${hasUser && !isOwner ? html`
-        <a href="/save/${blog.objectId}">Read later</a>` : null
-    }
-    ${isOwner ? html`
-        <a href="/edit/${blog.objectId}">Edit</a>
-        <a href="javascript:void(0)" @click=${onDelete}>Delete</a>` : null
-    }
-
-    <section>
-        <h2>Comments</h2>
-        <ul>
-            ${comments.map(comment => html`
-                <li>
-                    <p><strong>${comment.owner.username}:</strong> ${comment.commentByUser}</p>
-                    ${hasUser && comment.owner.objectId === userId ? html`
-                        <button @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
-                    ` : null}
-                </li>
-            `)}
-        </ul>
-        ${hasUser ? html`
-            <form @submit=${submitHandler((formData, form) => onSubmitComment(formData, form))}>
-                <textarea name="commentByUser" placeholder="Write a comment..." required></textarea>
-                <button type="submit">Submit Comment</button>
-            </form>
-        ` : html`<p>Please log in to comment.</p>`}
-    </section>
-
-    <section>
-        <h2>Reviews</h2>
-        <ul>
-            ${reviews.map(review => html`
-                <li>
-                    <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
-                    ${hasUser && review.owner.objectId === userId ? html`
-                        <button @click=${() => onDeleteReview(review.objectId)}>Delete</button>
-                    ` : null}
-                </li>
-            `)}
-        </ul>
-        ${hasUser ? html`
-            <form @submit=${submitHandler((formData, form) => onSubmitReview(formData, form))}>
-                <textarea name="reviewByUser" placeholder="Write a review..." required></textarea>
-                <div class="rating">
-                    <input type="radio" id="star5" name="stars" value="5" required /><label for="star5">★</label>
-                    <input type="radio" id="star4" name="stars" value="4" /><label for="star4">★</label>
-                    <input type="radio" id="star3" name="stars" value="3" /><label for="star3">★</label>
-                    <input type="radio" id="star2" name="stars" value="2" /><label for="star2">★</label>
-                    <input type="radio" id="star1" name="stars" value="1" /><label for="star1">★</label>
+    <div class="details-container container mt-5 position-relative">
+        <div class="row">
+            <div class="details-col col-12 col-md-8 offset-md-2">
+                <h1 class="text-center">${blog.name}</h1>
+                <p class="text-muted text-center">by ${blog.author}</p>
+                <p class="text-center">Minutes to reads: ${blog.blogCount}</p>
+                <p class="lead">${blog.description}</p>
+                <div class="d-flex justify-content-center">
+                    ${hasUser && !isOwner ? html`
+                        <a class="btn btn-primary mx-2" href="/blogs">Back to all blogs</a>` : null
+                    }
+                    ${isOwner ? html`
+                        <a class="btn btn-warning mx-2" href="/edit/${blog.objectId}">Edit</a>
+                        <button class="btn btn-danger mx-2" @click=${onDelete}>Delete</button>` : null
+                    }
                 </div>
-                <button type="submit">Submit Review</button>
-            </form>
-        ` : html`<p>Please log in to review.</p>`}
-    </section>
-`;
 
+                <div class="col-12 d-flex justify-content-center mt-4">
+                    <p class="me-2"> 
+                        <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#CommentCollapse" aria-expanded="false" aria-controls="CommentCollapse">Show comments</button>
+                    </p> 
+                    <p class="ms-2"> 
+                        <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#ReviewCollapse" aria-expanded="false" aria-controls="ReviewCollapse">Show Reviews</button>
+                    </p>
+                </div>
+
+                <div class="comment-body collapse collapse-right" id="CommentCollapse">
+                    <div class="comment-body card card-body">
+                        <section class="mt-5">
+                            <h2>Comments</h2>
+                            <ul class="list-group">
+                                ${comments.map(comment => html`
+                                    <li class="list-group-item">
+                                        <p><strong>${comment.owner.username}:</strong> ${comment.commentByUser}</p>
+                                        ${hasUser && comment.owner.objectId === userId ? html`
+                                            <button class="btn btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
+                                        ` : null}
+                                    </li>
+                                `)}
+                            </ul>
+                            ${hasUser ? html`
+                                <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitComment(formData, form))}>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" name="commentByUser" placeholder="Write a comment..." required></textarea>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Submit Comment</button>
+                                </form>
+                            ` : html`<p>Please log in to comment.</p>`}
+                        </section>
+                    </div>
+                </div>
+
+                <div class="collapse collapse-right" id="ReviewCollapse">
+                    <div class="card card-body">
+                        <section class="mt-5">
+                            <h2>Reviews</h2>
+                            <ul class="list-group">
+                                ${reviews.map(review => html`
+                                    <li class="list-group-item">
+                                        <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
+                                        ${hasUser && review.owner.objectId === userId ? html`
+                                            <button class="btn btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}>Delete</button>
+                                        ` : null}
+                                    </li>
+                                `)}
+                            </ul>
+                            ${hasUser ? html`
+                                <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitReview(formData, form))}>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" name="reviewByUser" placeholder="Write a review..." required></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="rating d-flex justify-content-between">
+                                            <input type="radio" id="star5" name="stars" value="5" required /><label for="star5">★</label>
+                                            <input type="radio" id="star4" name="stars" value="4" /><label for="star4">★</label>
+                                            <input type="radio" id="star3" name="stars" value="3" /><label for="star3">★</label>
+                                            <input type="radio" id="star2" name="stars" value="2" /><label for="star2">★</label>
+                                            <input type="radio" id="star1" name="stars" value="1" /><label for="star1">★</label>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Submit Review</button>
+                                </form>
+                            ` : html`<p>Please log in to review.</p>`}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
 export function detailsView(ctx) {
     const id = ctx.params.id;
     const hasUser = Boolean(ctx.user);

@@ -684,3 +684,17 @@ main {
     width: 200px;
     cursor: pointer;
 }
+
+/* details */
+.details-col {
+    margin-top: 100px;
+}
+
+.comment-body {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
