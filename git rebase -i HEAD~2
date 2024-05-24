@@ -1,0 +1,64 @@
+[33me148d81[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m minor change
+[33mc839d71[m minor change
+[33m6450df2[m started working ot details page
+[33m304ed99[m installed editorjs for later use
+[33m76ea59a[m background layer styling, create styling
+[33m7397dc2[m Background looping images funciton created
+[33m14241f1[m added background looping images
+[33mf995c75[m create templete style done
+[33m443b2f8[m edit template style done
+[33m83b0d24[m Added stop image button in the navbar
+[33m3471130[m minor change
+[33m608b8b3[m all blogs styles applied
+[33mf88d792[m added 404
+[33mb856167[m added test images
+[33m71b80a6[m coursels on home view, login and register minor changes
+[33me1d4178[m home view styled
+[33mc1239f0[m started styling blogs
+[33m401d097[m minor changes on the navbar
+[33mced1fbe[m login page almost finished
+[33m0e4f518[m register page almost finished
+[33m196b61e[m added images and removed old ones
+[33me62f8e6[m added custom font
+[33m971b011[m style applied
+[33m71c0173[m test images added
+[33mea05c88[m Started working on nav front-end
+[33ma8f33dd[m section updated - added for comment and reviews
+[33m3d5a506[m added stars one reviews
+[33mbd12663[m test wallpaper added
+[33mf5aa883[m comments and reviews funcitons added
+[33m59c2119[m Added bootstrap
+[33m5fcc66c[m updated app.js
+[33m470de4b[m added comments - finish later on
+[33m31782fa[m endpoints  reconstruction
+[33m5fe5c53[m logout clearing added
+[33m7a1ce1c[m route guards created
+[33m1b9e4c5[m preloader chcker added
+[33m84df2cc[m encodeObject and filterRelation added
+[33mf8f84ef[m Added description field in blog view
+[33me1cab14[m Added description field in create view
+[33mca7f026[m Details view created
+[33m2d99efe[m Edit view created
+[33ma2c9a9f[m test homeview added
+[33m966b83d[m logout action created
+[33macd07ca[m added logout path to nav
+[33m4696139[m created style.css for later use
+[33mf2904e4[m app.js updated
+[33mb8bb7ff[m added usernav
+[33m492ce90[m session function
+[33mdeeb4ad[m rendering functions
+[33m931471f[m created user operations
+[33m86b6af9[m Created blog user data
+[33mc232026[m Utils function created - add more if needed here
+[33m2f0e2a8[m Blog rendering template added
+[33mbca6002[m Create blog view with validations added
+[33m767d301[m test home view created
+[33mb1a63d4[m login view created
+[33m2086a11[m nav view created
+[33ma6b4ba3[m Register view created
+[33m5c69231[m refactoring
+[33m9fea9d8[m index.html update
+[33m518572e[m lite-server installed
+[33m4e7b67a[m needed packages for now installed
+[33m6e13093[m project init
+[33mfba03e7[m Initial commit
