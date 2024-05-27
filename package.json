@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@editorjs/editorjs": "^2.29.1",
+    "@editorjs/paragraph": "^2.11.4",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "lit-html": "^3.1.3",
