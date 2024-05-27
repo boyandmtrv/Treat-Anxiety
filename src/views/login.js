@@ -65,14 +65,6 @@ export function loginView(ctx) {
             return alert('All fields are required')
         };
 
-        if (email.length <= 5) {
-            return alert('Invalid email')
-        };
-
-        if (password.length <= 5) {
-            return alert('Password must be at least 6 characters long')
-        };
-
         await login(email, password);
         ctx.page.redirect('/blogs')
     }
