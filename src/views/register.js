@@ -88,6 +88,18 @@ export function registerView(ctx) {
             return alert('All fields are required')
         };
 
+        if (username.length <= 3) {
+            return alert('Username must be at least 4 characters long')
+        };
+
+        if (email.length <= 5) {
+            return alert('Invalid email')
+        };
+
+        if (password.length <= 5) {
+            return alert('Password must be at least 6 characters long')
+        };
+
         if (password != repass) {
             return alert('Passwords must match')
         };
