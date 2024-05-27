@@ -8,14 +8,9 @@ const loginTemplate = (onSubmit) => html`
                 <div class="col col-sm-6 col-lg-4 col-xl-3">
                     <div class="text-center mb-5">
                         <h3 class="fw-bold">Login</h3>
-                        <p class="text-secondary">Get access</p>
                     </div>
-                    <button class="btn btn-outline-secondary btn-outline-custom bg-lg w-100 mb-3">
-                        <i class='bx bxl-google text-danger me-1 fs-6'></i> Login with Google
-                    </button>
                     <div class="position-relative">
                         <hr class="text-secondary divider">
-                        <div class="divider-content-center">or</div>
                     </div>
                     <form @submit=${onSubmit}>
                         <div class="input-group mb-3">
@@ -43,7 +38,7 @@ const loginTemplate = (onSubmit) => html`
                         <div class="input-group mb-3 d-flex justify-content-left">
                             <input type="checkbox" class="form-check-input" id="formCheck">
                             <label for="formCheck" class="form-check-label text-secondary">
-                                <small class="ms-2">Remember me</small>
+                                <small class="ms-2 color text-light">Remember me</small>
                             </label>
                         </div>
                         <button

@@ -22,7 +22,7 @@ export const navTemplate = (hasUser, userId) => {
                 <div class="sidebar offcanvas offcanvas-start" tabindex="-1" 
                      id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header text-white border-bottom">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Treat Anxiety</h5>
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
                         <button type="button" class="btn-close btn-close-white shadow-none" 
                                 data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -56,7 +56,7 @@ export const navTemplate = (hasUser, userId) => {
                                     <a class="text-white text-decoration-none px-3 py-1 rounded-4 bg-[#f3f3f3]" href="/register">Register</a>
                                 `}
                         </div>
-                        <button id="toggleButton" class="btn btn-danger ms-3">Stop image</button>
+                        <button id="toggleButton" class="btn btn-danger ms-2">Stop image</button>
                     </div>
                 </div>
             </div>
