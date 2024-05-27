@@ -9,7 +9,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 <h1 class="text-center">${blog.name}</h1>
                 <p class="text-muted text-center">by ${blog.author}</p>
                 <p class="text-center">Minutes to read: ${blog.blogCount}</p>
-                <p class="lead">${blog.description}</p>
+                <p class="lead" .innerHTML=${blog.description}></p>
                 <div class="d-flex justify-content-center">
                     ${hasUser && !isOwner ? html`
                         <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
@@ -46,8 +46,8 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                         ${comments.map(comment => html`
                                             <div class="list-group-items">
                                                 <p><strong>${comment.owner.username}:</strong> ${comment.commentByUser}</p>
-                                                ${hasUser && comment.owner.objectId === userId ? html`
-                                                    <button class="btn btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
+                                                ${hasUser && (comment.owner.objectId === userId || isOwner) ? html`
+                                                    <button class="btn btn-comments btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
                                                 ` : null}
                                             </div>
                                         `)}
@@ -90,8 +90,8 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                         ${reviews.map(review => html`
                                             <div class="list-group-items">
                                                 <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
-                                                ${hasUser && review.owner.objectId === userId ? html`
-                                                    <button class="btn btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}>Delete</button>
+                                                ${hasUser && (review.owner.objectId === userId || isOwner) ? html`
+                                                    <button class="btn btn-reviews btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}>Delete</button>
                                                 ` : null}
                                             </div>
                                         `)}
@@ -112,7 +112,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             </div>
                                             <button class="btn btn-primary" type="submit">Submit Review</button>
                                         </form>
-                                    ` : html`<p>Please log in to review.</p>`}
+                                    ` : html`<p>Please log in to write a review.</p>`}
                                 </section>
                             </div>
                         </div>
@@ -122,6 +122,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
         </div>
     </div>
 `;
+
 
 export function detailsView(ctx) {
     const id = ctx.params.id;
