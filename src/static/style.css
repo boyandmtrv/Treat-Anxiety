@@ -108,6 +108,16 @@ main {
     }
 }
 
+.sidebar {
+    background-color: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(20px);
+}
+
+.navbar {
+    background-color: #a5a5a5
+}
+
+
 
 /* register */
 .bg-forms {
@@ -687,14 +697,66 @@ main {
 
 /* details */
 .details-col {
-    margin-top: 100px;
+    margin-top: 50px;
+    padding: 50px 50px 50px 50px;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: #f3f3f3;
+}
+.btn-blogs {
+    margin-top: 50px;
+    background-color: #5543ca;
 }
 
-.comment-body {
-    background-color: rgba(0, 0, 0, .3);
+.bg-comment-section,
+.bg-review-section {
+    background-color: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(20px);
+    color: #f3f3f3;
+    text-align: left;
 }
 
-.list-group-items {
+.details-forms {
+    resize: none;
     background-color: transparent;
+    color: #f3f3f3;
 }
 
+.details-forms:focus {
+    background-color: transparent;
+    color: #f3f3f3;
+}
+
+.details-forms::placeholder {
+    color: #f3f3f3;
+}
+
+
+.details-container {
+    margin-top: 5rem;
+    position: relative;
+}
+
+.popup-sections {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.popup-sections button {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: #f3f3f3;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-sections button:hover {
+    background-color: #262626;
+}
