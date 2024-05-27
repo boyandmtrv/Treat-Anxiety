@@ -6,7 +6,7 @@ const SPECIAL_USER_ID = CONFIG.SPECIAL_USER_ID;
 
 export const navTemplate = (hasUser, userId) => {
     return html`
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-logo navbar-brand fs-4" href="/">Treat  <span>Anxiety</span></a>
                 <button 
@@ -19,7 +19,7 @@ export const navTemplate = (hasUser, userId) => {
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="sidebar bg-transparent offcanvas offcanvas-start" tabindex="-1" 
+                <div class="sidebar offcanvas offcanvas-start" tabindex="-1" 
                      id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header text-white border-bottom">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Treat Anxiety</h5>
