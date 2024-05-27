@@ -109,7 +109,7 @@ main {
 }
 
 .sidebar {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: #1c1c1c;
     backdrop-filter: blur(20px);
 }
 
@@ -459,6 +459,7 @@ main {
 /* blogs */
 .all-blogs {
     margin-top: 50px;
+    color: #f3f3f3;
 }
 
 .wrapper {
@@ -567,7 +568,7 @@ main {
 
     .overlay h3 {
         font-size: 20px;
-        margin-top: 55%;
+        margin-top: 60%;
     }
 
     .overlay p {
@@ -714,8 +715,7 @@ main {
 
 .bg-comment-section,
 .bg-review-section {
-    background-color: rgba(0, 0, 0, .5);
-    backdrop-filter: blur(20px);
+    background-color: #1c1c1c;
     color: #f3f3f3;
     text-align: left;
 }
@@ -735,6 +735,10 @@ main {
     color: #f3f3f3;
 }
 
+.btn-reviews,
+.btn-comments {
+
+}
 
 .details-container {
     margin-top: 5rem;
@@ -744,6 +748,7 @@ main {
 .popup-sections {
     margin-top: 2rem;
     text-align: center;
+    
 }
 
 .popup-sections button {
@@ -759,4 +764,25 @@ main {
 
 .popup-sections button:hover {
     background-color: #262626;
+}
+
+@media (max-width: 991px) {
+    .details-col  {
+        font-size: 15px;
+     }
+    .details-col .lead {
+       font-size: 12px;
+       text-align: justify;
+    }
+
+    .popup-sections button {
+        margin: 0.5rem;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .bg-comment-section,
+.bg-review-section {
+    font-size: 12px;
+}
 }
