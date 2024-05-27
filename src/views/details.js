@@ -3,16 +3,16 @@ import { html } from '../lib/lit-html.js';
 import { submitHandler, createPointer } from '../util.js';
 
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
-    <div class="details-container container mt-5 position-relative">
+     <div class="details-container container">
         <div class="row">
-            <div class="details-col col-12 col-md-8 offset-md-2">
+            <div class="details-col">
                 <h1 class="text-center">${blog.name}</h1>
                 <p class="text-muted text-center">by ${blog.author}</p>
-                <p class="text-center">Minutes to reads: ${blog.blogCount}</p>
+                <p class="text-center">Minutes to read: ${blog.blogCount}</p>
                 <p class="lead">${blog.description}</p>
                 <div class="d-flex justify-content-center">
                     ${hasUser && !isOwner ? html`
-                        <a class="btn btn-primary mx-2" href="/blogs">Back to all blogs</a>` : null
+                        <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
                     }
                     ${isOwner ? html`
                         <a class="btn btn-warning mx-2" href="/edit/${blog.objectId}">Edit</a>
@@ -20,79 +20,109 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                     }
                 </div>
 
-                <div class="col-12 d-flex justify-content-center mt-4">
-                    <p class="me-2"> 
-                        <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#CommentCollapse" aria-expanded="false" aria-controls="CommentCollapse">Show comments</button>
-                    </p> 
-                    <p class="ms-2"> 
-                        <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#ReviewCollapse" aria-expanded="false" aria-controls="ReviewCollapse">Show Reviews</button>
-                    </p>
-                </div>
+                <div class="popup-sections">
+                    <button 
+                        class="navbar-toggler shadow-none section-buttons" 
+                        type="button" 
+                        data-bs-toggle="offcanvas" 
+                        data-bs-target="#offcanvasNavbarComments" 
+                        aria-controls="offcanvasNavbarComments" 
+                        aria-label="Toggle navigation">
+                        Show comments
+                    </button>
 
-                <div class="comment-body collapse collapse-right" id="CommentCollapse">
-                    <div class="comment-body card card-body">
-                        <section class="mt-5">
-                            <h2>Comments</h2>
-                            <ul class="list-group">
-                                ${comments.map(comment => html`
-                                    <li class="list-group-item">
-                                        <p><strong>${comment.owner.username}:</strong> ${comment.commentByUser}</p>
-                                        ${hasUser && comment.owner.objectId === userId ? html`
-                                            <button class="btn btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
-                                        ` : null}
-                                    </li>
-                                `)}
-                            </ul>
-                            ${hasUser ? html`
-                                <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitComment(formData, form))}>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" name="commentByUser" placeholder="Write a comment..." required></textarea>
+                    <div class="bg-comment-section offcanvas offcanvas-end" tabindex="-1" 
+                        id="offcanvasNavbarComments" aria-labelledby="offcanvasNavbarLabelComments">
+                        <div class="offcanvas-header border-bottom">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabelComments">Comments</h5>
+                            <button type="button" class="btn-close btn-close-white shadow-none" 
+                                data-bs-dismiss="offcanvas" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="offcanvascomments offcanvas-body d-flex flex-column p-4">
+                            <div class="comment-body" id="CommentCollapse">
+                                <section class="mt-5">
+                                    <div class="list-group">
+                                        ${comments.map(comment => html`
+                                            <div class="list-group-items">
+                                                <p><strong>${comment.owner.username}:</strong> ${comment.commentByUser}</p>
+                                                ${hasUser && comment.owner.objectId === userId ? html`
+                                                    <button class="btn btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
+                                                ` : null}
+                                            </div>
+                                        `)}
                                     </div>
-                                    <button class="btn btn-primary" type="submit">Submit Comment</button>
-                                </form>
-                            ` : html`<p>Please log in to comment.</p>`}
-                        </section>
+                                    ${hasUser ? html`
+                                        <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitComment(formData, form))}>
+                                            <div class="mb-3">
+                                                <textarea class="details-forms form-control" name="commentByUser" placeholder="Write a comment..." required></textarea>
+                                            </div>
+                                            <button class="btn btn-primary" type="submit">Submit Comment</button>
+                                        </form>
+                                    ` : html`<p>Please log in to comment.</p>`}
+                                </section>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="collapse collapse-right" id="ReviewCollapse">
-                    <div class="card card-body">
-                        <section class="mt-5">
-                            <h2>Reviews</h2>
-                            <ul class="list-group">
-                                ${reviews.map(review => html`
-                                    <li class="list-group-item">
-                                        <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
-                                        ${hasUser && review.owner.objectId === userId ? html`
-                                            <button class="btn btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}>Delete</button>
-                                        ` : null}
-                                    </li>
-                                `)}
-                            </ul>
-                            ${hasUser ? html`
-                                <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitReview(formData, form))}>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" name="reviewByUser" placeholder="Write a review..." required></textarea>
+                    <button 
+                        class="navbar-toggler shadow-none section-buttons" 
+                        type="button" 
+                        data-bs-toggle="offcanvas" 
+                        data-bs-target="#offcanvasNavbarReviews" 
+                        aria-controls="offcanvasNavbarReviews" 
+                        aria-label="Toggle navigation">
+                        Show reviews
+                    </button>
+
+                    <div class="bg-review-section offcanvas offcanvas-end" tabindex="-1" 
+                        id="offcanvasNavbarReviews" aria-labelledby="offcanvasNavbarLabelReviews">
+                        <div class="offcanvas-header border-bottom">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabelReviews">Reviews</h5>
+                            <button type="button" class="btn-close btn-close-white shadow-none" 
+                                    data-bs-dismiss="offcanvas" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="offcanvasreviews offcanvas-body d-flex flex-column p-4">
+                            <div class="review-body" id="ReviewCollapse">
+                                <section class="mt-5">
+                                    <div class="list-group">
+                                        ${reviews.map(review => html`
+                                            <div class="list-group-items">
+                                                <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
+                                                ${hasUser && review.owner.objectId === userId ? html`
+                                                    <button class="btn btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}>Delete</button>
+                                                ` : null}
+                                            </div>
+                                        `)}
                                     </div>
-                                    <div class="mb-3">
-                                        <div class="rating d-flex justify-content-between">
-                                            <input type="radio" id="star5" name="stars" value="5" required /><label for="star5">★</label>
-                                            <input type="radio" id="star4" name="stars" value="4" /><label for="star4">★</label>
-                                            <input type="radio" id="star3" name="stars" value="3" /><label for="star3">★</label>
-                                            <input type="radio" id="star2" name="stars" value="2" /><label for="star2">★</label>
-                                            <input type="radio" id="star1" name="stars" value="1" /><label for="star1">★</label>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" type="submit">Submit Review</button>
-                                </form>
-                            ` : html`<p>Please log in to review.</p>`}
-                        </section>
+                                    ${hasUser ? html`
+                                        <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitReview(formData, form))}>
+                                            <div class="mb-3">
+                                                <textarea class="details-forms form-control" name="reviewByUser" placeholder="Write a review..." required></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="rating d-flex justify-content-between">
+                                                    <input type="radio" id="star5" name="stars" value="5" required /><label for="star5">★</label>
+                                                    <input type="radio" id="star4" name="stars" value="4" /><label for="star4">★</label>
+                                                    <input type="radio" id="star3" name="stars" value="3" /><label for="star3">★</label>
+                                                    <input type="radio" id="star2" name="stars" value="2" /><label for="star2">★</label>
+                                                    <input type="radio" id="star1" name="stars" value="1" /><label for="star1">★</label>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary" type="submit">Submit Review</button>
+                                        </form>
+                                    ` : html`<p>Please log in to review.</p>`}
+                                </section>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 `;
+
 export function detailsView(ctx) {
     const id = ctx.params.id;
     const hasUser = Boolean(ctx.user);
