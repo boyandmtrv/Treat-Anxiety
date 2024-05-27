@@ -52,6 +52,9 @@ export function editView(ctx) {
 
         const userId = ctx.user.objectId;
 
+        description = description.replace(/\n/g, '<br>');
+
+
         await blogService.update(id, { name, author, blogCount, description, readyForRead }, userId);
 
         ctx.page.redirect('/blogs/' + id);

@@ -37,18 +37,21 @@ const createTeplate = (onSubmit) => html`
 export function createView(ctx) {
     ctx.render(createTeplate(submitHandler(onSubmit)));
 
-    async function onSubmit({ name, author, blogCount, description }) {
-        blogCount = parseInt(blogCount);
-        if (name == '' || author == '' || Number.isNaN(blogCount) || description == '') {
-            return alert('All fields are required');
-        }
-        
-        const userId = ctx.user?.objectId;
-        
-        const result = await blogService.create({ name, author, blogCount, description }, userId);
-
-        ctx.page.redirect('/blogs/' + result.objectId);
+   async function onSubmit({ name, author, blogCount, description }) {
+    blogCount = parseInt(blogCount);
+    if (name == '' || author == '' || Number.isNaN(blogCount) || description == '') {
+        return alert('All fields are required');
     }
+    
+    const userId = ctx.user?.objectId;
+
+    description = description.replace(/\n/g, '<br>');
+
+    const result = await blogService.create({ name, author, blogCount, description }, userId);
+
+    ctx.page.redirect('/blogs/' + result.objectId);
+}
+
 }
 
 {/* <h1>Blog</h1>
