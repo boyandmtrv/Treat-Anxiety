@@ -1,4 +1,4 @@
-import { html } from '../lib/lit-html.js';
+import { html } from './src/lib/lit-html.js';
 
 const notFoundTemplate = () => html`
       <section id="not-found">

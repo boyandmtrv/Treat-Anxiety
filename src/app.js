@@ -15,7 +15,7 @@ import { preloader } from './middlewares/preloader.js';
 import { hasUser, isOwner } from './middlewares/guards.js';
 import { detailsView } from './views/details.js';
 import { editView } from './views/edit.js';
-import { notFoundView } from './views/notFound.js'; 
+import { notFoundView } from '../notFound.js'; 
 
 page(addRender(document.querySelector('main'), document.querySelector('header')));
 page(addSession(getUserData));
