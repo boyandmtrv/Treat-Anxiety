@@ -12,10 +12,8 @@ const loadingTemplate = html`
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
      <div class="details-container container" id="detailsContainer">
      <div class="percentage-indicator" id="percentageIndicator"></div>
-
         <div class="row">
-
-            <div class="details-col">
+            <div class="details-col bg-transparent">
                 <h1 class="text-center">${blog.name}</h1>
                 <p class="text-muted text-center">by ${blog.author}</p>
                 <p class="text-center">Minutes to read: ${blog.blogCount}</p>
