@@ -22,7 +22,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
 
                 <div class="popup-sections">
                     <button 
-                        class="navbar-toggler shadow-none section-buttons" 
+                        class="show-btn navbar-toggler shadow-none section-buttons" 
                         type="button" 
                         data-bs-toggle="offcanvas" 
                         data-bs-target="#offcanvasNavbarComments" 
@@ -35,7 +35,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                         id="offcanvasNavbarComments" aria-labelledby="offcanvasNavbarLabelComments">
                         <div class="offcanvas-header border-bottom">
                             <h5 class="offcanvas-title" id="offcanvasNavbarLabelComments">Comments</h5>
-                            <button type="button" class="btn-close btn-close-white shadow-none" 
+                            <button type="button" class="btn-close bg-transparent btn-close-white shadow-none" 
                                 data-bs-dismiss="offcanvas" aria-label="Close">
                             </button>
                         </div>
@@ -47,7 +47,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             <div class="list-group-items">
                                                 <p><strong>${comment.owner.username}:</strong> ${comment.commentByUser}</p>
                                                 ${hasUser && (comment.owner.objectId === userId || isOwner) ? html`
-                                                    <button class="btn btn-comments btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}>Delete</button>
+                                                    <button class="btn btn-comments btn-danger btn-sm" @click=${() => onDeleteComment(comment.objectId)}><i class='bx bx-trash'></i></button>
                                                 ` : null}
                                             </div>
                                         `)}
@@ -57,7 +57,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             <div class="mb-3">
                                                 <textarea class="details-forms form-control" name="commentByUser" placeholder="Write a comment..." required></textarea>
                                             </div>
-                                            <button class="btn btn-primary" type="submit">Submit Comment</button>
+                                            <button class="btn-submit btn btn-primary" type="submit">Submit Comment</button>
                                         </form>
                                     ` : html`<p>Please log in to comment.</p>`}
                                 </section>
@@ -66,7 +66,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                     </div>
 
                     <button 
-                        class="navbar-toggler shadow-none section-buttons" 
+                        class="show-btn navbar-toggler shadow-none section-buttons" 
                         type="button" 
                         data-bs-toggle="offcanvas" 
                         data-bs-target="#offcanvasNavbarReviews" 
@@ -79,7 +79,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                         id="offcanvasNavbarReviews" aria-labelledby="offcanvasNavbarLabelReviews">
                         <div class="offcanvas-header border-bottom">
                             <h5 class="offcanvas-title" id="offcanvasNavbarLabelReviews">Reviews</h5>
-                            <button type="button" class="btn-close btn-close-white shadow-none" 
+                            <button type="button" class="btn-close bg-transparent btn-close-white shadow-none" 
                                     data-bs-dismiss="offcanvas" aria-label="Close">
                             </button>
                         </div>
@@ -91,7 +91,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             <div class="list-group-items">
                                                 <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
                                                 ${hasUser && (review.owner.objectId === userId || isOwner) ? html`
-                                                    <button class="btn btn-reviews btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}>Delete</button>
+                                                    <button class="btn btn-reviews btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}><i class='bx bx-trash'></i></button>
                                                 ` : null}
                                             </div>
                                         `)}
@@ -110,7 +110,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                                     <input type="radio" id="star1" name="stars" value="1" /><label for="star1">★</label>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary" type="submit">Submit Review</button>
+                                            <button class="btn-submit btn btn-primary" type="submit">Submit Review</button>
                                         </form>
                                     ` : html`<p>Please log in to write a review.</p>`}
                                 </section>
