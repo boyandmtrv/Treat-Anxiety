@@ -36,10 +36,6 @@
     color: #f3f3f3;
 }
 
-.btn-reviews,
-.btn-comments {
-
-}
 
 .details-container {
     margin-top: 5rem;
@@ -53,19 +49,39 @@
 }
 
 .popup-sections button {
-    margin: 1rem;
+    margin: .5rem;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #1c1c1c;
+    background-color: rgb(209, 115, 115);
     color: #f3f3f3;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+
+.popup-sections .show-btn {
+    background-color: #5543ca;
+}
+
 .popup-sections button:hover {
     background-color: #262626;
 }
+
+.popup-sections .btn-submit {
+    background-color: #5543ca;
+}
+
+
+.bx-trash {
+    color: #f3f3f3;
+    font-size: 15px;
+}
+
+.bx-trash:hover {
+    color: rgb(209, 115, 115)
+}
+
 
 @media (max-width: 991px) {
     .details-col  {
