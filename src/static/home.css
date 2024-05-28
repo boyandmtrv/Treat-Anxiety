@@ -1,0 +1,247 @@
+.home .carousel-item {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.home .carousel-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: -1;
+}
+
+.home .carousel-item .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.home .carousel-item h2 {
+    font-size: 80px;
+    color: #fff;
+    margin: 0 0 10px;
+    opacity: 0;
+}
+
+.home .carousel-item p {
+    font-size: 30px;
+    margin: 0;
+    color: #eee;
+    opacity: 0;
+}
+
+
+.home .container .nav-link {
+    color: #622FC8;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid #622FC8;
+    border-radius: 100px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.carousel-item .container .nav-link:hover {
+    background-color: #622FC8;
+    color: white;
+}
+
+.carousel-item .container-quote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.quote-text {
+    max-width: 50%;
+    text-align: right;
+}
+
+.quote-author {
+    max-width: 40%;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+/* CSS */
+.social {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.social a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.social i {
+    font-size: 2.5em;
+    color: #622FC8;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social a:hover i,
+.social a:focus i {
+    color: #C13584;
+    transform: scale(1.1);
+}
+
+
+.home .carousel-item .title .title-treat {
+    color: #622FC8;
+}
+
+
+.home .carousel-item.active h2 {
+    animation: fadeInLeft .5s ease forwards;
+}
+
+.home .carousel-item.active p {
+    animation: fadeInRight .5s ease forwards;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.home .carousel-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.home .carousel-indicators {
+    position: relative;
+    margin: 0;
+}
+
+.home .carousel-indicators button {
+    height: 70px;
+    width: 70px;
+    margin: 0 5px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    border: 3px solid transparent;
+    transition: all .3s ease;
+}
+
+.home .carousel-indicators button.active {
+    border-color: #fff;
+    transform: scale(1.2);
+}
+
+.home .carousel-control-prev,
+.home .carousel-control-next {
+    height: 60px;
+    width: 60px;
+    opacity: 1;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: all .3 ease;
+}
+
+.home .carousel-control-prev:hover,
+.home .carousel-control-next:hover {
+    box-shadow: 0 0 10px #fff;
+    transition: all .3 ease-in-out;
+}
+
+.home .carousel-control-prev i,
+.home .carousel-control-next i {
+    width: 30px;
+}
+
+.home .carousel-control-next {
+    right: -90px;
+}
+
+.home .carousel-control-prev {
+
+    left: -90px;
+}
+
+@media (max-width: 767px) {
+
+    .home .carousel-control-next,
+    .home .carousel-control-prev {
+        display: none;
+    }
+
+    .home .carousel-indicators button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .home .carousel-item h2 {
+        font-size: 50px;
+    }
+
+    .home .carousel-item p {
+        font-size: 20px;
+    }
+
+    .carousel-item .container-quote {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 20px;
+    }
+
+    .quote-text {
+        max-width: 90%;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .quote-author {
+        max-width: 90%;
+        text-align: center;
+        font-size: .6em;
+        padding-top: 30px;
+    }
+}

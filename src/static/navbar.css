@@ -1,0 +1,24 @@
+.navbar-logo {
+    font-family: 'Dream';
+}
+
+.navbar-logo span {
+    font-family: "Montserrat", sans-serif;
+    color: #622FC8;
+}
+
+.sidebar {
+    background-color: #1c1c1c;
+    backdrop-filter: blur(20px);
+}
+
+.navbar {
+    background-color: #a5a5a5
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        background-color: #1c1c1c;
+        backdrop-filter: blur(10px);
+    }
+}
