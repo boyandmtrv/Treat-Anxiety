@@ -4,8 +4,11 @@ import { submitHandler, createPointer } from '../util.js';
 
 
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
-     <div class="details-container container">
+     <div class="details-container container" id="detailsContainer">
+     <div class="percentage-indicator" id="percentageIndicator"></div>
+
         <div class="row">
+
             <div class="details-col">
                 <h1 class="text-center">${blog.name}</h1>
                 <p class="text-muted text-center">by ${blog.author}</p>
@@ -14,11 +17,11 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 <div class="d-flex justify-content-center">
                     ${hasUser && !isOwner ? html`
                         <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
-                    }
+    }
                     ${isOwner ? html`
                         <a class="btn btn-warning mx-2" href="/edit/${blog.objectId}">Edit</a>
                         <button class="btn btn-danger mx-2" @click=${onDelete}>Delete</button>` : null
-                    }
+    }
                 </div>
 
                 <div class="popup-sections">
@@ -139,6 +142,8 @@ export function detailsView(ctx) {
         const reviews = await getReviewsByBlogId(id);
 
         ctx.render(detailsTemplate(blog, hasUser, isOwner, onDelete, comments.results, reviews.results, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview));
+
+        document.getElementById('detailsContainer').addEventListener('scroll', updatePercentageIndicator);
     }
 
     loadDetails();
@@ -163,15 +168,15 @@ export function detailsView(ctx) {
         };
 
         await createComment(commentData);
-        form.reset(); 
-        loadDetails(); 
+        form.reset();
+        loadDetails();
     }
 
     async function onDeleteComment(commentId) {
         const choice = confirm('Are you sure you want to delete this comment?');
         if (choice) {
             await deleteComment(commentId);
-            loadDetails();  
+            loadDetails();
         }
     }
 
@@ -189,15 +194,31 @@ export function detailsView(ctx) {
         };
 
         await createReview(reviewData);
-        form.reset(); 
-        loadDetails(); 
+        form.reset();
+        loadDetails();
     }
 
     async function onDeleteReview(reviewId) {
         const choice = confirm('Are you sure you want to delete this review?');
         if (choice) {
             await deleteReview(reviewId);
-            loadDetails(); 
+            loadDetails();
+        }
+    }
+
+    function updatePercentageIndicator() {
+        console.log("Scroll event detected!");
+        const container = document.getElementById('detailsContainer');
+        const scrollHeight = container.scrollHeight;
+        const scrollTop = container.scrollTop;
+        const clientHeight = container.clientHeight;
+
+        const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+        if (scrollPercentage < 100) {
+            document.getElementById('percentageIndicator').textContent = `Read Progress: ${Math.round(scrollPercentage)}%`;
+        } else {
+            document.getElementById('percentageIndicator').textContent = `Thank you.`;
         }
     }
 }
