@@ -31,7 +31,6 @@ body {
     position: relative;
     font-family: 'Poppins', sans-serif;
     background-image: url('../img/fourth-main.png');
-    overflow: hidden;
 }
 
 main {
