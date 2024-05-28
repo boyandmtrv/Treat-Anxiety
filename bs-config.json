@@ -1,6 +1,6 @@
 {
     "server": {
-      "baseDir": "./src",
+      "baseDir": "./src/app.js",
       "routes": {}
       
     }
