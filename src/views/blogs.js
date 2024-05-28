@@ -3,6 +3,13 @@ import { html } from '../lib/lit-html.js';
 import * as blogService from '../data/blog.js';
 import { repeat } from '../lib/directives/repeat.js';
 
+const loadingTemplate = html`
+<div class="loader">
+    <div class="lds-ripple"><div></div><div></div></div>
+</div>
+`;
+
+
 const imageUrls = [
     '/src/img/vertical-one.jpg',
     '/src/img/vertical-two.jpg',
@@ -44,7 +51,7 @@ const blogCard = (blog) => html`
 
 
 export async function blogView(ctx) {
-    ctx.render(blogTemplate(html`<p>Loading...</p>`));
+    ctx.render(loadingTemplate);
 
     const { results: blogs } = await blogService.getAll(ctx.user?.objectId);
 

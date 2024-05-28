@@ -2,6 +2,12 @@ import { deleteById, getById, getCommentsByBlogId, createComment, deleteComment,
 import { html } from '../lib/lit-html.js';
 import { submitHandler, createPointer } from '../util.js';
 
+const loadingTemplate = html`
+<div class="loader">
+    <div class="lds-ripple"><div></div><div></div></div>
+</div>
+`;
+
 
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
      <div class="details-container container" id="detailsContainer">
@@ -134,7 +140,7 @@ export function detailsView(ctx) {
     const userId = ctx.user?.objectId;
     const isOwner = ctx.data?.owner?.objectId === userId;
 
-    ctx.render(html`<p>Loading...</p>`);
+    ctx.render(loadingTemplate);
 
     async function loadDetails() {
         const blog = await getById(id);

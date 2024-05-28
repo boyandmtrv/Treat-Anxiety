@@ -9,6 +9,7 @@
 @import url(./blogs.css);
 @import url(./404.css);
 @import url(./create.css);
+@import url(./loader.css);
 
 @font-face {
     font-family: 'Dream';
