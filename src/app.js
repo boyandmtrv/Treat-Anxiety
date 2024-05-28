@@ -21,7 +21,7 @@ page(addRender(document.querySelector('main'), document.querySelector('header'))
 page(addSession(getUserData));
 page(addUserNav(navTemplate))
 
-page('/index.html', '/');
+// page('/index.html', '/');
 page('/', homeView);
 page('/create', hasUser(), createView);
 page('/blogs', blogView);
