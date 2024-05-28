@@ -6,7 +6,7 @@ import * as blogService from '../data/blog.js';
 const editTemplate = (blog, onSubmit) => html`
   <form @submit=${onSubmit}>
     <div class="create-blog">
-        <h1 class="create-title">Create blog</h1>
+        <h1 class="create-title">Edit blog</h1>
         <div class="container">
         <div class="form-field col-lg-6">
                     <input type="checkbox" name="readyForRead" .checked=${blog.readyForRead}>

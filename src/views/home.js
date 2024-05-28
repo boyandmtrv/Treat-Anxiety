@@ -13,6 +13,7 @@ const homeTemplate = () => html`
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                     <div>
+                        
                         <i class='bx bx-left-arrow' alt></i>
                     </div>
                 </button>

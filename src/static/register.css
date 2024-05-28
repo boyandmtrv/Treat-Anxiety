@@ -14,17 +14,7 @@
     background-position: center;
 }
 
-.bg-forms::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .3);
-    z-index: -1;
-    backdrop-filter: blur(10px);
-}
+
 
 .bg-forms h3 {
     font-size: 50px;
