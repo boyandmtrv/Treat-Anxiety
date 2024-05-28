@@ -2,6 +2,7 @@ import { deleteById, getById, getCommentsByBlogId, createComment, deleteComment,
 import { html } from '../lib/lit-html.js';
 import { submitHandler, createPointer } from '../util.js';
 
+
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
      <div class="details-container container">
         <div class="row">

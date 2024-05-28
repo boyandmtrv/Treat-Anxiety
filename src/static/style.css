@@ -21,6 +21,7 @@ body {
     height: 100vh;
     background-position: center;
     background-size: cover;
+    background-repeat: repeat;
     font-family: 'Poppins', sans-serif;
     position: relative;
     background-image: url('../img/fourth-main.png');

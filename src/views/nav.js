@@ -18,7 +18,7 @@ export const navTemplate = (hasUser, userId) => {
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div class="sidebar offcanvas offcanvas-start" tabindex="-1" 
                      id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header text-white border-bottom">
