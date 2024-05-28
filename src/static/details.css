@@ -1,6 +1,5 @@
 .details-col {
     padding: 50px 50px 50px 50px;
-    background-color: rgba(0, 0, 0, .1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +14,7 @@
     scrollbar-width: thin;
     scrollbar-color: #5543ca #1c1c1c;
     max-height: 800px;
-    
+    background-color: transparent;    
 }
 
 .percentage-indicator {
