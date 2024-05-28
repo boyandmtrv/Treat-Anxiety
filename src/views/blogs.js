@@ -31,8 +31,10 @@ const blogTemplate = (list) => html`
 `;
 
 const listTemplate = (blogs) => html`
+<div class="blogs-container">
     <div class="box-area">
         ${repeat(blogs, b => b.objectId, blogCard)}
+    </div>
     </div>
 `;
 
