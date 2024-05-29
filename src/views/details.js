@@ -148,7 +148,7 @@ export function detailsView(ctx) {
 
         ctx.render(detailsTemplate(blog, hasUser, isOwner, onDelete, comments.results, reviews.results, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview));
 
-        document.getElementById('detailsContainer').addEventListener('scroll', updatePercentageIndicator);
+       
     }
 
     loadDetails();

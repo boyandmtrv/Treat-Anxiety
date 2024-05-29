@@ -21,10 +21,10 @@ body {
     height: 100vh;
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
     position: relative;
     font-family: 'Poppins', sans-serif;
     background-image: url('../img/fourth-main.png');
+    z-index: 0; 
 }
 
 main {
