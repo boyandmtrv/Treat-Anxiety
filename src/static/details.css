@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-    z-index: 1;
+    overflow: hidden;
 }
 
 .full-page-overlay::before {
@@ -17,9 +17,8 @@
 }
 
 .details-container {
-    max-height: 800px;
     overflow-y: scroll;
-    height: 100vh;
+    max-height: 700px;
 }
 
 .details-container::-webkit-scrollbar {
@@ -110,12 +109,16 @@
 
 
 @media (max-width: 991px) {
-    .full-page-overlay {
-        margin-top: -35px;
-    }
+   
     .details-col  {
         font-size: 15px;
      }
+
+     .details-container {
+        margin-top: 170px;
+        max-height: 550px;
+    }
+    
 
     .details-col .lead {
        font-size: 14px;
