@@ -37,3 +37,7 @@ main {
     position: relative;
 }
 
+.address-logo {
+    display: flex;
+    border-radius: 100%;
+}
