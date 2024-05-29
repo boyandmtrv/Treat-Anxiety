@@ -24,7 +24,6 @@ const getRandomImageUrl = () => {
 const blogTemplate = (list) => html`
 <div class="card-area">
 <div class="all-blogs wrapper">
-        <h1 class="text-center">All blogs</h1>
         ${list}
         </div>
 </div>
@@ -32,6 +31,7 @@ const blogTemplate = (list) => html`
 
 const listTemplate = (blogs) => html`
 <div class="blogs-container">
+<h1 class="text-center">All blogs</h1>
     <div class="box-area">
         ${repeat(blogs, b => b.objectId, blogCard)}
     </div>
