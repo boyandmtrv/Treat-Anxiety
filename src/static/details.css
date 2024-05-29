@@ -16,24 +16,13 @@
 }
 
 .details-container {
-    position: relative;
     max-height: 800px;
     overflow-y: auto; 
 }
 
 .details-container::-webkit-scrollbar {
-    width: 5px;
+    width: 0px
 }
-
-.details-container::-webkit-scrollbar-track {
-    background: #ffffff1e;
-}
-
-.details-container::-webkit-scrollbar-thumb {
-    background-color: #5543ca;
-    border-radius: 6px;
-}
-
 
 .details-col {
     padding: 50px;
