@@ -34,6 +34,16 @@
     width: 100%;
     color: #f3f3f3;
 }
+
+#progress-bar {
+    margin-top: 60px;
+    height: 6px;
+    background-color: #5543ca; 
+    --progress: 0;
+    width: var(--progress);
+    position: absolute;
+}
+
 .btn-blogs {
     margin-top: 50px;
     background-color: #5543ca;
@@ -117,6 +127,10 @@
      .details-container {
         margin-top: 170px;
         max-height: 550px;
+    }
+
+    #progress-bar {
+        height: 2px;  
     }
     
 

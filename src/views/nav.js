@@ -1,6 +1,5 @@
 import { html } from '../lib/lit-html.js';
 import { CONFIG } from '../config.js';
-// import { startBackgroundChanger, stopBackgroundChanger, isBackgroundChangerRunning } from '../backgroundImages.js';
 
 const SPECIAL_USER_ID = CONFIG.SPECIAL_USER_ID;
 
@@ -56,26 +55,9 @@ export const navTemplate = (hasUser, userId) => {
                                     <a class="text-white text-decoration-none px-3 py-1 rounded-4 bg-[#f3f3f3]" href="/register">Register</a>
                                 `}
                         </div>
-                      
                     </div>
                 </div>
             </div>
         </nav>
     `;
 };
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     startBackgroundChanger();
-
-//     const toggleButton = document.getElementById('toggleButton');
-    
-//     toggleButton.addEventListener('click', () => {
-//         if (isBackgroundChangerRunning()) {
-//             stopBackgroundChanger();
-//             toggleButton.textContent = 'Start image';
-//         } else {
-//             startBackgroundChanger();
-//             toggleButton.textContent = 'Stop image';
-//         }
-//     });
-// });

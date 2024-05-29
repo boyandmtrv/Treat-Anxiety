@@ -1,4 +1,4 @@
-import { deleteById, getById, getCommentsByBlogId, createComment, deleteComment, getReviewsByBlogId, deleteReview, createReview } from '../data/blog.js';
+import { deleteById, getById, getCommentsByBlogId, createComment, deleteComment, getReviewsByBlogId, deleteReview, createReview, update } from '../data/blog.js';
 import { html } from '../lib/lit-html.js';
 import { submitHandler, createPointer } from '../util.js';
 
@@ -10,6 +10,7 @@ const loadingTemplate = html`
 
 
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
+<div id="progress-bar"></div>
 <div class="full-page-overlay">
      <div class="details-container container" id="detailsContainer">
         <div class="row">
@@ -148,7 +149,13 @@ export function detailsView(ctx) {
 
         ctx.render(detailsTemplate(blog, hasUser, isOwner, onDelete, comments.results, reviews.results, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview));
 
-       
+        updateProgressBar();
+        
+        setTimeout(() => {
+            const detailsContainer = document.getElementById('detailsContainer');
+            detailsContainer.addEventListener('scroll', updateProgressBar);
+        }, 100);
+
     }
 
     loadDetails();
@@ -210,4 +217,18 @@ export function detailsView(ctx) {
             loadDetails();
         }
     }
+
+    function updateProgressBar() {
+        const detailsContainer = document.getElementById('detailsContainer');
+        if (!detailsContainer) {
+            return; 
+        }
+
+        const { scrollTop, scrollHeight, clientHeight } = detailsContainer;
+
+        const scrollPercent = `${(scrollTop / (scrollHeight - clientHeight)) * 100}%`;
+
+        document.querySelector('#progress-bar').style.setProperty('--progress', scrollPercent)
+    }
 }
+
