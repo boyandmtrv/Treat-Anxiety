@@ -10,8 +10,8 @@ const loadingTemplate = html`
 
 
 const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
+<div class="full-page-overlay">
      <div class="details-container container" id="detailsContainer">
-     <div class="percentage-indicator" id="percentageIndicator"></div>
         <div class="row">
             <div class="details-col bg-transparent">
                 <h1 class="text-center">${blog.name}</h1>
@@ -129,6 +129,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
             </div>
         </div>
     </div>
+</div>
 `;
 
 
@@ -207,22 +208,6 @@ export function detailsView(ctx) {
         if (choice) {
             await deleteReview(reviewId);
             loadDetails();
-        }
-    }
-
-    function updatePercentageIndicator() {
-        console.log("Scroll event detected!");
-        const container = document.getElementById('detailsContainer');
-        const scrollHeight = container.scrollHeight;
-        const scrollTop = container.scrollTop;
-        const clientHeight = container.clientHeight;
-
-        const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-
-        if (scrollPercentage < 100) {
-            document.getElementById('percentageIndicator').textContent = `Read Progress: ${Math.round(scrollPercentage)}%`;
-        } else {
-            document.getElementById('percentageIndicator').textContent = `Thank you.`;
         }
     }
 }
