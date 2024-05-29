@@ -7,9 +7,21 @@
     padding: 10px 10%;
 }
 
-
 .card-area {
-    padding: 50px 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+.card-area::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: -1;
 }
 
 .box-area {
@@ -29,11 +41,22 @@
 
 .blogs-container {
     overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: transparent;
     max-height: 800px;
-    background-color: transparent;  
 }
+
+.blogs-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.blogs-container::-webkit-scrollbar-track {
+    background: #ffffff1e;
+}
+
+.blogs-container::-webkit-scrollbar-thumb {
+    background-color: #5543ca;
+    border-radius: 6px;
+}
+
 
 .box img {
     width: 100%;
@@ -106,6 +129,7 @@
 }
 
 @media (max-width: 767px) {
+
     .box-area {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
