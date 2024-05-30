@@ -64,22 +64,21 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                 <section class="mt-5">
                                     <div class="list-group">
                                         ${comments.map(comment => html`
-                                            <div class="d-flex justify-content-between">
-                                                <p class="mb-1"><strong>${comment.owner.username}</strong></p>
-                                                ${hasUser && (comment.owner.objectId === userId || isOwner) ? html`
-                                                    <button class="btn btn-comments btn-sm" @click=${() => onDeleteComment(comment.objectId)}>
-                                                        <i class='bx bx-trash'></i>
-                                                    </button>
-                                                ` : null}
+                                        <div class="comment-container d-flex justify-content-between align-items-center">
+                                            <p class="username mb-1"><strong>${comment.owner.username}</strong></p>
+                                            ${hasUser && (comment.owner.objectId === userId || isOwner) ? html`
+                                                <button class="btn btn-comments btn-sm" @click=${() => onDeleteComment(comment.objectId)}>
+                                                    <i class='bx bx-trash'></i>
+                                                </button>
+                                            ` : html`<span class="comment-actions"></span>`}
+                                        </div>
+                                        <div class="list-group-items mb-3 d-flex justify-content-between align-items-center">
+                                            <div class="comment-content">
+                                                    <p class="time-posted">${moment(comment.createdAt).fromNow()}</p>
+                                                <p class="comment-description mb-1">${comment.commentByUser}</p>
                                             </div>
-                                            <div class="list-group-items mb-3 d-flex justify-content-between align-items-center">
-                                                <div class="comment-content">
-                                                    ${hasUser ? html`
-                                                        <p class="time-posted">${moment(comment.createdAt).fromNow()}</p>
-                                                    ` : null}
-                                                    <p class="comment-description mb-1">${comment.commentByUser}</p>
-                                                </div>
-                                            </div>
+                                        </div>
+
                                         `)}
 
                                     </div>
@@ -117,16 +116,23 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                         <div class="offcanvasreviews offcanvas-body d-flex flex-column p-4">
                             <div class="review-body" id="ReviewCollapse">
                                 <section class="mt-5">
-                                    <div class="list-group">
                                         ${reviews.map(review => html`
-                                            <div class="list-group-items">
-                                                <p><strong>${review.owner.username}:</strong> ${review.reviewByUser} - ${'★'.repeat(review.stars)} Stars</p>
+                                            <div class="comment-container d-flex justify-content-between align-items-center">
+                                                <p class="username"><strong>${review.owner.username}</strong></p>
                                                 ${hasUser && (review.owner.objectId === userId || isOwner) ? html`
-                                                    <button class="btn btn-reviews btn-danger btn-sm" @click=${() => onDeleteReview(review.objectId)}><i class='bx bx-trash'></i></button>
-                                                ` : null}
+                                                    <button class="btn btn-reviews btn-sm" @click=${() => onDeleteReview(review.objectId)}><i class='bx bx-trash'></i></button>
+                                                ` : html`<span class="comment-actions"></span>`}
+                                            </div>
+                                            <div class="list-group-items mb-3 d-flex justify-content-between align-items-center">
+                                                <div class="comment-content">
+                                                    <p class="time-posted-review">${moment(review.createdAt).fromNow()}</p>
+                                                    <div class="rating">
+                                                        ${'★'.repeat(review.stars)}
+                                                    </div>
+                                                    <p class="user-review mb-1">${review.reviewByUser}</p>
+                                                </div>
                                             </div>
                                         `)}
-                                    </div>
                                     ${hasUser ? html`
                                         <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitReview(formData, form))}>
                                             <div class="mb-3">
@@ -154,6 +160,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
     </div>
 </div>
 `;
+
 
 
 export function detailsView(ctx) {
