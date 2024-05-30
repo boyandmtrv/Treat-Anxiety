@@ -1,15 +1,16 @@
-import { formatDistanceToNow } from '../../node_modules/date-fns/formatDistanceToNow.mjs';
-import { 
-    deleteById, 
-    getById, 
-    getCommentsByBlogId, 
-    createComment, 
-    deleteComment, 
-    getReviewsByBlogId, 
-    deleteReview, 
-    createReview 
+import {
+    deleteById,
+    getById,
+    getCommentsByBlogId,
+    createComment,
+    deleteComment,
+    getReviewsByBlogId,
+    deleteReview,
+    createReview
 } from '../data/blog.js';
 import { html } from '../lib/lit-html.js';
+import moment from '../lib/moment.js';
+
 import { submitHandler, createPointer } from '../util.js';
 
 const loadingTemplate = html`
@@ -62,20 +63,25 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                             <div class="comment-body" id="CommentCollapse">
                                 <section class="mt-5">
                                     <div class="list-group">
-                                    ${comments.map(comment => html`
-                                    <div class="d-flex flex-lg-row justify-content-between">
-                                                    <p class="mb-1"><strong>${comment.owner.username}</strong></p>
-                                                    ${hasUser && (comment.owner.objectId === userId || isOwner) ? html`
-                                                <button class="btn btn-comments btn-sm" @click=${() => onDeleteComment(comment.objectId)}><i class='bx bx-trash'></i></button>
-                                            ` : null}
-                                                </div>
-                                        <div class="list-group-items mb-3 d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p class="time-posted">${formatDistanceToNow(new Date(comment.createdAt))} ago</p>
-                                                <p class="comment-description mb-1">${comment.commentByUser}</p>
+                                        ${comments.map(comment => html`
+                                            <div class="d-flex justify-content-between">
+                                                <p class="mb-1"><strong>${comment.owner.username}</strong></p>
+                                                ${hasUser && (comment.owner.objectId === userId || isOwner) ? html`
+                                                    <button class="btn btn-comments btn-sm" @click=${() => onDeleteComment(comment.objectId)}>
+                                                        <i class='bx bx-trash'></i>
+                                                    </button>
+                                                ` : null}
                                             </div>
-                                        </div>
-                                    `)}
+                                            <div class="list-group-items mb-3 d-flex justify-content-between align-items-center">
+                                                <div class="comment-content">
+                                                    ${hasUser ? html`
+                                                        <p class="time-posted">${moment(comment.createdAt).fromNow()}</p>
+                                                    ` : null}
+                                                    <p class="comment-description mb-1">${comment.commentByUser}</p>
+                                                </div>
+                                            </div>
+                                        `)}
+
                                     </div>
                                     ${hasUser ? html`
                                         <form class="mt-3" @submit=${submitHandler((formData, form) => onSubmitComment(formData, form))}>
@@ -166,7 +172,7 @@ export function detailsView(ctx) {
         ctx.render(detailsTemplate(blog, hasUser, isOwner, onDelete, comments.results, reviews.results, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview));
 
         updateProgressBar();
-        
+
         setTimeout(() => {
             const detailsContainer = document.getElementById('detailsContainer');
             detailsContainer.addEventListener('scroll', updateProgressBar);
@@ -237,7 +243,7 @@ export function detailsView(ctx) {
     function updateProgressBar() {
         const detailsContainer = document.getElementById('detailsContainer');
         if (!detailsContainer) {
-            return; 
+            return;
         }
 
         const { scrollTop, scrollHeight, clientHeight } = detailsContainer;
