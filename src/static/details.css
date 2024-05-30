@@ -2,7 +2,6 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-    overflow: hidden;
 }
 
 .full-page-overlay::before {
@@ -11,10 +10,9 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, .3);
     z-index: -1;
-    overflow: hidden;
 
 }
 
@@ -48,7 +46,13 @@
 
 .btn-blogs {
     margin-top: 50px;
+    color: #f3f3f3;
     background-color: #5543ca;
+}
+
+.btn-blogs:hover {
+    background-color: #564d97;
+
 }
 
 .bg-comment-section,
@@ -144,11 +148,13 @@
 }
 
 .popup-sections .show-btn {
+    font-weight: bold;
     background-color: #5543ca;
+    font-size: 15px;
 }
 
 .popup-sections button:hover {
-    background-color: #262626;
+    background-color: #564d97;
 }
 
 .popup-sections .btn-submit {
