@@ -103,7 +103,7 @@
 }
 
 .time-posted-review {
-    margin-top: -15px;
+    margin-top: -12px;
     font-size: 15px;
     color: #9e9e9e;
     flex: 1;
@@ -202,9 +202,12 @@
     }
 
     
-    .time-posted {
+    .time-posted,
+    .time-posted-review {
         font-size: 12px;
     }
+
+    
     
 
     #offcanvasNavbarComments,
