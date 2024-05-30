@@ -8,17 +8,14 @@
 }
 
 .sidebar {
-    background-color: #1c1c1c;
+    background: rgba(85, 67, 202, 0.29);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .navbar {
     background-color: #a5a5a5;
 }
 
-@media (max-width: 991px) {
-    .sidebar {
-        background-color: #1c1c1c;
-        backdrop-filter: blur(10px);
-    }
-}
+@media (max-width: 991px) {}
