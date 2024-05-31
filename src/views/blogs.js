@@ -40,17 +40,24 @@ const listTemplate = (blogs) => html`
 
 const blogCard = (blog) => html`
     <div class="box">
-    <img src="/src/img/bg-blogs.png" alt="Blog image">
+        <div class="img-text">
+            <img src="/src/img/bg-blogs.png" alt="Blog image">
+            ${highlightLastWord(blog.name)}
+        </div>
             <div class="overlay">
-                <h3>${blog.name}</h3>
                 <p class="p-read">${blog.blogCount} minutes to read</p>
                 <p class="p-add">${blog.owner.username}</p>
                 <a href="/blogs/${blog.objectId}">Read</a>
             </div>
     </div>
-  
-`;
 
+`;
+function highlightLastWord(name) {
+    const words = name.split(' ');
+    const lastWord = words.pop(); 
+    const coloredLastWord = html`<span class="last-word">${lastWord}</span>`; 
+    return html`<h3>${words.join(' ')} ${coloredLastWord}</h3>`; 
+}
 
 export async function blogView(ctx) {
     ctx.render(loadingTemplate);
@@ -59,12 +66,3 @@ export async function blogView(ctx) {
 
     ctx.render(blogTemplate(listTemplate(blogs)));
 };
-
-//  <article>
-// <p>${blog.name}</p>
-// <p>${blog.author}</p>
-// <p>${blog.blogCount}</p>
-// <p>${blog.description}</p>
-// <p><a href="/blogs/${blog.objectId}">View Details</a></p>
-// <p>Created by: ${blog.owner.username}</p>
-// </article> 
