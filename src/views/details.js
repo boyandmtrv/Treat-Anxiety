@@ -6,7 +6,10 @@ import {
     deleteComment,
     getReviewsByBlogId,
     deleteReview,
-    createReview
+    createReview,
+    getLikesByCommentId,
+    createLike,
+    deleteLike
 } from '../data/blog.js';
 import { html } from '../lib/lit-html.js';
 import moment from '../lib/moment.js';
@@ -20,14 +23,14 @@ const loadingTemplate = html`
 `;
 
 
-const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview) => html`
+const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview, onLikeComment, onUnlikeComment) => html`
 <div id="progress-bar"></div>
 <div class="full-page-overlay">
      <div class="details-container container" id="detailsContainer">
         <div class="row">
             <div class="details-col bg-transparent">
                 <h1 class="text-center">${blog.name}</h1>
-                <p class="text-muted text-center">by ${blog.author}</p>
+                <p class="author-text text-center">by ${blog.author}</p>
                 <p class="text-center">Minutes to read: ${blog.blogCount}</p>
                 <p class="lead" .innerHTML=${blog.description}></p>
                 <div class="d-flex justify-content-center">
@@ -76,10 +79,20 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             <div class="comment-content">
                                                     <p class="time-posted">${moment(comment.createdAt).fromNow()}</p>
                                                 <p class="comment-description mb-1">${comment.commentByUser}</p>
+                                                <div class="like-section">
+                                                <span class="likes-length">${comment.likes.length} likes</span>
+                                                ${hasUser ? html`
+                                                    ${comment.likes.includes(userId) ? html`
+                                                        <button class="btn btn-like btn-sm" @click=${() => onUnlikeComment(comment.objectId)}><i class='bx bxs-heart' ></i></button>
+                                                    ` : html`
+                                                        <button class="btn btn-unlike btn-sm" @click=${() => onLikeComment(comment.objectId)}><i class='bx bx-heart'></i></button>
+                                                    `}
+                                                ` : null}                                                                                            
                                             </div>
-                                        </div>
-
-                                        `)}
+                                            
+                                            </div>
+                                            
+                                            `)}
 
                                     </div>
                                     ${hasUser ? html`
@@ -176,7 +189,13 @@ export function detailsView(ctx) {
         const comments = await getCommentsByBlogId(id);
         const reviews = await getReviewsByBlogId(id);
 
-        ctx.render(detailsTemplate(blog, hasUser, isOwner, onDelete, comments.results, reviews.results, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview));
+        const commentsWithLikes = await Promise.all(comments.results.map(async (comment) => {
+            const likes = await getLikesByCommentId(comment.objectId);
+            comment.likes = likes.results.map(like => like.owner ? like.owner.objectId : null).filter(Boolean);
+            return comment;
+        }));
+
+        ctx.render(detailsTemplate(blog, hasUser, isOwner, onDelete, comments.results, reviews.results, onSubmitComment, onDeleteComment, userId, onSubmitReview, onDeleteReview, onLikeComment, onUnlikeComment, commentsWithLikes));
 
         updateProgressBar();
 
@@ -246,6 +265,27 @@ export function detailsView(ctx) {
             loadDetails();
         }
     }
+
+    async function onLikeComment(commentId) {
+        const likeData = {
+            comment: createPointer('Comments', commentId),
+            owner: createPointer('_User', userId)
+        };
+
+        await createLike(likeData);
+        loadDetails();
+    }
+
+    async function onUnlikeComment(commentId) {
+        const likes = await getLikesByCommentId(commentId);
+        const like = likes.results.find(like => like.owner && like.owner.objectId === userId);
+    
+        if (like) {
+            await deleteLike(like.objectId);
+            loadDetails();
+        }
+    }
+    
 
     function updateProgressBar() {
         const detailsContainer = document.getElementById('detailsContainer');
