@@ -24,6 +24,7 @@ body {
     position: relative;
     font-family: 'Poppins', sans-serif;
     background-image: url('../img/fourth-main.png');
+    background-attachment: fixed;
     z-index: 0; 
 }
 
