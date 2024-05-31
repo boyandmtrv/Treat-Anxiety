@@ -25,6 +25,18 @@
     width: 0px
 }
 
+.fonts-words {
+    font-family: 'Rasputin';
+    font-size: 60px;
+    color: #000000;
+}
+
+.last-word {
+    font-family: 'Billion';
+    font-size: 150px;
+    color: #622FC8;
+}
+
 .details-col {
     padding: 50px;
     display: flex;
@@ -218,6 +230,7 @@
     margin-top: -15px;
 }
 
+
 @media (max-width: 991px) {
 
     .details-col {
@@ -291,6 +304,14 @@
     .percentage-indicator {
         font-size: 14px;
 
+    }
+
+    .fonts-words {
+        font-size: 25px;
+    }
+    
+    .last-word {
+        font-size: 55px;
     }
 }
 

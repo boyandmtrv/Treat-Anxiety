@@ -29,18 +29,18 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
      <div class="details-container container" id="detailsContainer">
         <div class="row">
             <div class="details-col bg-transparent">
-                <h1 class="text-center">${blog.name}</h1>
+            ${highlightLastWord(blog.name)}
                 <p class="author-text text-center">by ${blog.author}</p>
                 <p class="text-center">Minutes to read: ${blog.blogCount}</p>
                 <p class="lead" .innerHTML=${blog.description}></p>
                 <div class="d-flex justify-content-center">
                     ${hasUser && !isOwner ? html`
                         <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
-    }
+                    }
                     ${isOwner ? html`
                         <a class="btn btn-warning mx-2" href="/edit/${blog.objectId}">Edit</a>
                         <button class="btn btn-danger mx-2" @click=${onDelete}>Delete</button>` : null
-    }
+                    }
                 </div>
 
                 <div class="popup-sections">
@@ -174,6 +174,13 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
 </div>
 `;
 
+function highlightLastWord(name) {
+    const words = name.split(' ');
+    const lastWord = words.pop();
+    const coloredLastWord = html`<span class="last-word">${lastWord}</span>`;
+    return html`<h3 class="fonts-words">${words.join(' ')} ${coloredLastWord}</h3>`;
+}
+
 
 
 export function detailsView(ctx) {
@@ -279,13 +286,13 @@ export function detailsView(ctx) {
     async function onUnlikeComment(commentId) {
         const likes = await getLikesByCommentId(commentId);
         const like = likes.results.find(like => like.owner && like.owner.objectId === userId);
-    
+
         if (like) {
             await deleteLike(like.objectId);
             loadDetails();
         }
     }
-    
+
 
     function updateProgressBar() {
         const detailsContainer = document.getElementById('detailsContainer');
@@ -299,5 +306,6 @@ export function detailsView(ctx) {
 
         document.querySelector('#progress-bar').style.setProperty('--progress', scrollPercent)
     }
+
 }
 
