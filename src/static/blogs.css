@@ -131,7 +131,7 @@
     background: linear-gradient(transparent, #f3f3f370 100%);
     z-index: -1;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
 }
 
 .overlay .p-read {
