@@ -85,8 +85,8 @@
     position: absolute;
     font-size: 40px;
     z-index: 1;
-    color: #000000;
- 
+    color: #000000; 
+    transition: opacity 0.5s ease;
 }
 
 .img-text .last-word {
@@ -99,6 +99,7 @@
     color: #622FC8;
     font-size: 130px;
     position: relative;
+    transition: opacity 0.5s ease; 
 }
 
 
@@ -131,7 +132,6 @@
     background: linear-gradient(transparent, #f3f3f370 100%);
     z-index: -1;
     border-radius: 10px;
-    backdrop-filter: blur(30px);
 }
 
 .overlay .p-read {
@@ -163,6 +163,10 @@
     height: 100%;
 }
 
+.box:hover .img-text h3,
+.box:hover .img-text .last-word {
+    opacity: 0; 
+}
 
 @media (max-width: 767px) {
 
