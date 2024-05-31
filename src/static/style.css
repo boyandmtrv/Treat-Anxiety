@@ -16,6 +16,17 @@
     src: url('/src/fonts/FontsFree-Net-Dream-Avenue.ttf') format('woff2'),
 }
 
+@font-face {
+    font-family: 'Billion';
+    src: url('/src/fonts/Billion\ Miracles.otf') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Rasputin';
+    src: url('/src/fonts/Rasputin.otf') format('woff2'),
+}
+
+
 body {
     width: 100%;
     height: 100vh;
