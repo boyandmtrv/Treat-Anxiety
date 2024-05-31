@@ -9,7 +9,9 @@ const endPoints = {
     'commentsByBlogId': (blogId) => `/classes/Comments?where=${encodeObject({ blog: { "__type": "Pointer", "className": "Blog", "objectId": blogId } })}&include=owner`,
     'comment': `/classes/Comments`,
     'reviewsByBlogId': (blogId) => `/classes/Reviews?where=${encodeObject({ blog: { "__type": "Pointer", "className": "Blog", "objectId": blogId } })}&include=owner`,
-    'review': `/classes/Reviews`
+    'review': `/classes/Reviews`,
+    'likesByCommentId': (commentId) => `/classes/Likes?where=${encodeObject({ comment: { "__type": "Pointer", "className": "Comments", "objectId": commentId } })}&include=owner`,
+    'like': `/classes/Likes`
 };
 
 const SPECIAL_USER_ID = CONFIG.SPECIAL_USER_ID;
@@ -64,4 +66,16 @@ export async function createReview(reviewData) {
 
 export async function deleteReview(reviewId) {
     return del(endPoints.review + '/' + reviewId);
+}
+
+export async function getLikesByCommentId(commentId) {
+    return get(endPoints.likesByCommentId(commentId));
+}
+
+export async function createLike(likeData) {
+    return post(endPoints.like, likeData);
+}
+
+export async function deleteLike(likeId) {
+    return del(endPoints.like + '/' + likeId);
 }
