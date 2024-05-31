@@ -10,15 +10,15 @@ const loadingTemplate = html`
 `;
 
 
-const imageUrls = [
-    '/src/img/vertical-one.jpg',
-    '/src/img/vertical-two.jpg',
-    '/src/img/vertical-three.jpg',
-];
+// const imageUrls = [
+//     '/src/img/vertical-one.jpg',
+//     '/src/img/vertical-two.jpg',
+//     '/src/img/vertical-three.jpg',
+// ];
 
-const getRandomImageUrl = () => {
-    return imageUrls[Math.floor(Math.random() * imageUrls.length)];
-};
+// const getRandomImageUrl = () => {
+//     return imageUrls[Math.floor(Math.random() * imageUrls.length)];
+// };
 
 
 const blogTemplate = (list) => html`
@@ -40,7 +40,7 @@ const listTemplate = (blogs) => html`
 
 const blogCard = (blog) => html`
     <div class="box">
-    <img src="${getRandomImageUrl()}" alt="Blog image">
+    <img src="/src/img/bg-blogs.png" alt="Blog image">
             <div class="overlay">
                 <h3>${blog.name}</h3>
                 <p class="p-read">${blog.blogCount} minutes to read</p>
