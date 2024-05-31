@@ -18,12 +18,12 @@
 
 @font-face {
     font-family: 'Billion';
-    src: url('/src/fonts/Billion%20Miracles.otf') format('opentype');
+    src: url('/src/fonts/Billion%20Miracles.otf') ;
 }
 
 @font-face {
     font-family: 'Rasputin';
-    src: url('/src/fonts/Rasputin.otf') format('opentype');
+    src: url('/src/fonts/Rasputin.otf') ;
 }
 
 body {
