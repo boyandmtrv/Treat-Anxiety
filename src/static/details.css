@@ -35,6 +35,11 @@
     color: #f3f3f3;
 }
 
+.details-col .author-text {
+    color: #dbdbdb;
+    margin-top: 10px;
+}
+
 #progress-bar {
     margin-top: 60px;
     height: 6px;
@@ -119,7 +124,6 @@
 }
 
 .comment-description {
-    border-bottom: 1px solid #f3f3f33f;
     padding-bottom: 20px;
 }
 
@@ -134,6 +138,41 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.comment-container .username {
+    margin-top: 20px;
+}
+
+.like-section {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    align-items: start;
+    border-bottom: 1px solid #f3f3f33f;
+    overflow: auto;
+    padding-bottom: 20px;
+}
+
+.like-section .likes-length {
+    font-size: 15px;
+}
+
+.like-section .btn-like {
+    color: red;
+    margin-top: -3px;
+    margin-left: -5px;
+}
+
+.like-section .btn-unlike {
+    color: #f3f3f3;
+    margin-top: -3px;
+    margin-left: -5px;
+}
+
+.like-section .btn-like:hover,
+.like-section .btn-unlike:hover {
+    background-color: transparent;
 }
 
 .d-flex.justify-content-between .username {
@@ -188,6 +227,8 @@
     .details-container {
         margin-top: 130px;
         max-height: 550px;
+        font-size: 50px;
+
     }
 
     #progress-bar {
@@ -196,8 +237,9 @@
 
 
     .details-col .lead {
-        font-size: 14px;
+        font-size: 16px;
         text-align: justify;
+        width: 110%;
     }
 
     .popup-sections button {
@@ -227,8 +269,11 @@
         font-size: 12px;
     }
 
-
-
+    .like-section .btn-like,
+    .like-section .btn-unlike {
+        margin-top: -2px;
+        
+    }
 
     #offcanvasNavbarComments,
     #offcanvasNavbarReviews {
