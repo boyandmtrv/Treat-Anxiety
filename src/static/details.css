@@ -11,7 +11,7 @@
     top: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .1);
     z-index: -1;
 
 }
@@ -28,13 +28,13 @@
 .fonts-words {
     font-family: 'Rasputin';
     font-size: 60px;
-    color: #000000;
+    color: #42A8A2;
 }
 
 .last-word {
     font-family: 'Billion';
     font-size: 150px;
-    color: #622FC8;
+    color: #7C6096;
 }
 
 .details-col {
@@ -44,7 +44,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    color: #f3f3f3;
+    color: #272727;
 }
 
 .details-col .author-text {

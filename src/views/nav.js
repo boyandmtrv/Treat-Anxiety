@@ -15,7 +15,7 @@ export const navTemplate = (hasUser, userId) => {
                     data-bs-target="#offcanvasNavbar" 
                     aria-controls="offcanvasNavbar" 
                     aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="toggler-icon"><i class='bx bx-menu-alt-right'></i></span>
                 </button>
                 
                 <div class="sidebar offcanvas offcanvas-start" tabindex="-1" 
@@ -28,7 +28,7 @@ export const navTemplate = (hasUser, userId) => {
                     <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
                         <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
                             <li class="nav-item mx-4" data-bs-dismiss="offcanvas">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link" aria-current="page" href="/" style="color: #272727">Home</a>
                             </li>
                             <li class="nav-item mx-4" data-bs-dismiss="offcanvas">
                                 <a class="nav-link" href="/blogs">Blogs</a>
@@ -45,14 +45,14 @@ export const navTemplate = (hasUser, userId) => {
                                 `
             : ''}
                         </ul>
-                        <div class="d-flex flex-row flex-lg-row justify-content-center align-items-center gap-3 text-decoration-none" data-bs-dismiss="offcanvas">
+                        <div class="navbar-bottom d-flex flex-row flex-lg-row justify-content-center align-items-center gap-3 text-decoration-none" data-bs-dismiss="offcanvas">
                             ${hasUser
             ? html`
-                                    <a class="text-white text-decoration-none px-3 py-1 rounded-4 bg-[#f3f3f3]" href="/logout">Logout</a>
+                                    <a class="text-decoration-none px-3 py-1 rounded-4" href="/logout">Logout</a>
                                 `
             : html`
-                                    <a class="text-white" href="/login">Login</a>
-                                    <a class="text-white text-decoration-none px-3 py-1 rounded-4 bg-[#f3f3f3]" href="/register">Register</a>
+                                    <a class="text-decoration-none px-3" href="/login">Login</a>
+                                    <a class="px-3 py-1 rounded-4 text-decoration-none" href="/register">Register</a>
                                 `}
                         </div>
                     </div>

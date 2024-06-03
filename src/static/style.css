@@ -33,7 +33,7 @@ body {
     background-size: cover;
     position: relative;
     font-family: 'Poppins', sans-serif;
-    background-image: url('../img/third-main.jpg');
+    background-image: url('../img/read-main.png');
     background-attachment: fixed;
     z-index: 0; 
 }

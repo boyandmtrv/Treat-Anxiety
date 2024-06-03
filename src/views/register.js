@@ -61,7 +61,7 @@ const registerTemplate = (onSubmit) => html`
                         <div class="input-group mb-3 d-flex justify-content-left">
                             <input type="checkbox" class="form-check-input" id="formCheck">
                             <label for="formCheck" class="form-check-label text-secondary">
-                                <small class="ms-2 text-light">Remember me</small>
+                                <small class="ms-2">Remember me</small>
                             </label>
                         </div>
                         <button
@@ -70,9 +70,9 @@ const registerTemplate = (onSubmit) => html`
                         </button>
                     </form>
                     <div class="text-center">
-                        <small class="text-white">
+                        <small class="bottom-link">
                             Already have an account?
-                            <a href="/login" class="fw-bold text-white">Login</a>
+                            <a href="/login" class="fw-bold">Login</a>
                         </small>
                     </div>
                 </div>

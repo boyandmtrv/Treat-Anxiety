@@ -1,5 +1,3 @@
-
-
 .home .carousel-item {
     min-height: 100vh;
     background-position: center;
@@ -240,7 +238,7 @@
         height: 50px;
         width: 50px;
     }
-    
+
     .home .carousel-item .subtitle {
         font-size: 20px;
     }
@@ -255,7 +253,20 @@
 
     .home .carousel-item img {
         width: 350px;
-     }
+    }
+
+    .home .container .nav-link {
+        color: #7C6096;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: .9rem;
+        margin-top: 20px;
+        display: inline-block;
+        padding: 0.2rem 1rem;
+        border: 2px solid #7C6096;
+        border-radius: 100px;
+        transition: background-color 0.3s, color 0.3s;
+    }
 
     .carousel-item .container-quote {
         display: flex;

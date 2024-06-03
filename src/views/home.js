@@ -5,7 +5,7 @@ const homeTemplate = () => html`
         <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-controls">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background: url(src/img/first-main.jpg)"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background: url(src/img/first-main.png)"></button>
                     <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2" style="background: url(src/img/fifth-main.jpg)"></button>
                     <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3" style="background: url(src/img/third-main.jpg)"></button>
                     <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4" style="background: url(src/img/fourth-main.jpg)"></button>
@@ -26,7 +26,7 @@ const homeTemplate = () => html`
             <div class="carousel-inner">
                 <div 
                     class="carousel-item active"
-                    style="background: url(src/img/first-main.jpg)">
+                    style="background: url(src/img/first-main.png)">
                     <div class="container">
                         <h2 class="title"><span class="title-treat">Treat</span> Anxiety</h2>
                         <p class="subtitle">you are not your thoughts</p>

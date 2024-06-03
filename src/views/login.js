@@ -38,7 +38,7 @@ const loginTemplate = (onSubmit) => html`
                         <div class="input-group mb-3 d-flex justify-content-left">
                             <input type="checkbox" class="form-check-input" id="formCheck">
                             <label for="formCheck" class="form-check-label text-secondary">
-                                <small class="ms-2 color text-light">Remember me</small>
+                                <small class="ms-2">Remember me</small>
                             </label>
                         </div>
                         <button
@@ -47,9 +47,9 @@ const loginTemplate = (onSubmit) => html`
                         </button>
                     </form>
                     <div class="text-center">
-                        <small class="text-white">
+                        <small class="bottom-link">
                            Don't have an account?
-                            <a href="/register" class="fw-bold text-white">Register</a>
+                            <a href="/register" class="fw-bold ">Register</a>
                         </small>
                     </div>
                 </div>

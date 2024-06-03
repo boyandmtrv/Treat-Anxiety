@@ -16,19 +16,19 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .1);
     z-index: -1;
 }
 
 
 .bg-forms h3 {
     font-size: 50px;
-    color: #fff;
+    color: #272727;
 }
 
 .bg-forms h3 {
     font-size: 50px;
-    color: #fff;
+    color: #272727;
 }
 
 .btn {
@@ -40,6 +40,19 @@
     vertical-align: text-top;
 }
 
+.bottom-link {
+    color: #272727;
+}
+
+.bottom-link a {
+    color: #272727;
+}
+
+small {
+    color: #272727;
+}
+
+
 .divider-content-center {
     position: absolute;
     top: 50%;
@@ -50,7 +63,7 @@
     background-color: transparent;
     font-size: .8rem;
     font-weight: 500;
-    color: #f3f3f3;
+    color: #272727;
 }
 
 .divider {
@@ -59,17 +72,17 @@
 
 .btn-outline-custom {
     color: #313131;
-    border-color: #fff;
+    border-color: #272727;
 }
 
 .btn-outline-custom:hover {
     color: #313131;
-    border-color: #eee;
-    background-color: #eee;
+    border-color: #272727;
+    background-color: #272727;
 }
 
 .register-btn {
-    background-color: #622FC8;
+    background-color: #7C6096;
     color: #f3f3f3;
 }
 

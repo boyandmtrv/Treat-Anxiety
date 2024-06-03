@@ -1,6 +1,6 @@
 .navbar-logo img {
     height: auto;
-    margin-top: 15px;
+    margin-bottom: 20px;
     max-height: 100px;
 }
 
@@ -15,22 +15,46 @@
     -webkit-backdrop-filter: blur(20px);
 }
 
-.navbar-toggler-icon {
-    margin-top: -30px;
+.toggler-icon i {
+    margin-bottom: 50px;
+    color: #272727;
+    font-size: 30px;
 }
 
+
 .navbar {
-    background-color: #a5a5a5;
+    background-color: #f3f3f365;
     height: 60px; 
     display: flex;
     align-items: center;
-
 }
+
+.navbar-nav a {
+    color: #272727;
+}
+
+
+.navbar-bottom a{
+    color: #272727;
+}
+
+.navbar-nav a:hover {
+    color: #7C6096;
+}
+
 
 @media (max-width: 991px) {
     .navbar-logo img {
         margin-top: -15px;
         max-height: 80px;
+    }
 
+    .navbar-nav a {
+        color: #f3f3f3;
+    }
+
+    
+    .navbar-bottom a{
+        color: #f3f3f3;
     }
 }
