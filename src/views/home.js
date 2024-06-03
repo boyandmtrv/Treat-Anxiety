@@ -28,8 +28,7 @@ const homeTemplate = () => html`
                     class="carousel-item active"
                     style="background: url(src/img/first-main.jpg)">
                     <div class="container">
-                    <img src="/src/img/logo.svg" alt="">
-                        <h2 class="title"><span class="title-treat">treat</span> anxiety</h2>
+                        <h2 class="title"><span class="title-treat">Treat</span> Anxiety</h2>
                         <p class="subtitle">you are not your thoughts</p>
                         <a class="nav-link" href="/blogs">See All Blogs</a>
                     </div>

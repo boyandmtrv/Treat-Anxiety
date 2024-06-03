@@ -7,7 +7,7 @@ export const navTemplate = (hasUser, userId) => {
     return html`
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-logo navbar-brand fs-4" href="/">Treat  <span>Anxiety</span></a>
+                <a class="navbar-logo navbar-brand fs-4" href="/">       <img src="/src/img/logo.svg" alt=""></a>
                 <button 
                     class="navbar-toggler shadow-none border-0" 
                     type="button" 
@@ -34,23 +34,23 @@ export const navTemplate = (hasUser, userId) => {
                                 <a class="nav-link" href="/blogs">Blogs</a>
                             </li>
                             ${hasUser
-                                ? html`
+            ? html`
                                     ${userId === SPECIAL_USER_ID
-                                        ? html`
+                    ? html`
                                             <li class="nav-item mx-1" data-bs-dismiss="offcanvas">
                                                 <a class="nav-link" href="/create">Create</a>
                                             </li>
                                         `
-                                        : ''}
+                    : ''}
                                 `
-                                : ''}
+            : ''}
                         </ul>
                         <div class="d-flex flex-row flex-lg-row justify-content-center align-items-center gap-3 text-decoration-none" data-bs-dismiss="offcanvas">
                             ${hasUser
-                                ? html`
+            ? html`
                                     <a class="text-white text-decoration-none px-3 py-1 rounded-4 bg-[#f3f3f3]" href="/logout">Logout</a>
                                 `
-                                : html`
+            : html`
                                     <a class="text-white" href="/login">Login</a>
                                     <a class="text-white text-decoration-none px-3 py-1 rounded-4 bg-[#f3f3f3]" href="/register">Register</a>
                                 `}
