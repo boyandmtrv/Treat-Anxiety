@@ -246,6 +246,11 @@
         font-size: 20px;
     }
 
+    .home .carousel-item .title {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
     .home .carousel-item h2 {
         font-size: 50px;
     }
