@@ -53,8 +53,8 @@
 }
 
 #progress-bar {
-    margin-top: 90px;
-    height: 6px;
+    margin-top: 60px;
+    height: 3px;
     background-color: #7C6096;
     --progress: 0;
     width: var(--progress);
