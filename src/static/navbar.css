@@ -1,6 +1,6 @@
 .navbar-logo img {
     height: auto;
-    margin-bottom: 20px;
+    margin-top: 15px;
     max-height: 100px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .toggler-icon i {
-    margin-bottom: 50px;
+    margin-top: -50px;
     color: #272727;
     font-size: 30px;
 }
@@ -56,5 +56,11 @@
     
     .navbar-bottom a{
         color: #f3f3f3;
+    }
+
+    .toggler-icon i {
+        margin-bottom: 20px;
+        color: #272727;
+        font-size: 30px;
     }
 }

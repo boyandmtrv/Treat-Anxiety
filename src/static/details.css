@@ -48,14 +48,14 @@
 }
 
 .details-col .author-text {
-    color: #dbdbdb;
+    color: #27272786;
     margin-top: 10px;
 }
 
 #progress-bar {
     margin-top: 60px;
     height: 6px;
-    background-color: #5543ca;
+    background-color: #7C6096;
     --progress: 0;
     width: var(--progress);
     position: absolute;
@@ -64,11 +64,11 @@
 .btn-blogs {
     margin-top: 50px;
     color: #f3f3f3;
-    background-color: #5543ca;
+    background-color: #7C6096;
 }
 
 .btn-blogs:hover {
-    background-color: #564d97;
+    background-color: #7C6096;
 
 }
 
@@ -204,7 +204,7 @@
 
 .popup-sections .show-btn {
     font-weight: bold;
-    background-color: #5543ca;
+    background-color: #7C6096;
     font-size: 15px;
 }
 
@@ -213,7 +213,7 @@
 }
 
 .popup-sections .btn-submit {
-    background-color: #5543ca;
+    background-color: #7C6096;
 }
 
 
@@ -253,6 +253,7 @@
         font-size: 16px;
         text-align: justify;
         width: 110%;
+        margin-top: 20px;
     }
 
     .popup-sections button {
@@ -346,7 +347,7 @@
 .rating>label:hover~label,
 .rating>input:checked~label {
     opacity: 1;
-    color: #5543ca;
+    color: #7C6096;
 }
 
 .rating>input {

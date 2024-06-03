@@ -31,7 +31,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
             <div class="details-col bg-transparent">
             ${highlightLastWord(blog.name)}
                 <p class="author-text text-center">by ${blog.author}</p>
-                <p class="text-center">Minutes to read: ${blog.blogCount}</p>
+                <!-- <p class="text-center">Minutes to read: ${blog.blogCount}</p> -->
                 <p class="lead" .innerHTML=${blog.description}></p>
                 <div class="d-flex justify-content-center">
                     ${hasUser && !isOwner ? html`

@@ -112,6 +112,9 @@
 .home .carousel-item .title {
     font-family: "Poppins";
     color: #7C6096;
+    letter-spacing: 5px;
+    font-weight: 400;
+    text-transform:lowercase;
     font-size: 80px;
 }
 
