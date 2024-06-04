@@ -1,8 +1,9 @@
 import { login } from '../data/users.js';
 import { html } from '../lib/lit-html.js';
 import { submitHandler } from '../util.js';
+import { until } from '../lib/directives/until.js';
 
-const loginTemplate = (onSubmit) => html`
+const loginTemplate = (onSubmit, errorMessage) => html`
      <div class="row vh-100 g-0">
             <div class="bg-forms row align-items-center justify-content-center h-100 g-0 px-4 px-sm-0">
                 <div class="col col-sm-6 col-lg-4 col-xl-3">
@@ -12,6 +13,7 @@ const loginTemplate = (onSubmit) => html`
                     <div class="position-relative">
                         <hr class="text-secondary divider">
                     </div>
+            
                     <form @submit=${onSubmit}>
                         <div class="input-group mb-3">
                             <span class="input-group-text">
@@ -35,6 +37,11 @@ const loginTemplate = (onSubmit) => html`
                                 placeholder="Password"
                             />
                         </div>
+                        ${errorMessage ? html`
+                                <div class="alert alert-danger" role="alert" >
+                                    ${errorMessage}
+                                </div>
+                        ` : ''}
                         <div class="input-group mb-3 d-flex justify-content-left">
                             <input type="checkbox" class="form-check-input" id="formCheck">
                             <label for="formCheck" class="form-check-label text-secondary">
@@ -55,18 +62,21 @@ const loginTemplate = (onSubmit) => html`
                 </div>
             </div>
     </div>
-`
+`;
 
 export function loginView(ctx) {
-    ctx.render(loginTemplate(submitHandler(onLogin)));
+    let errorMessage = '';
+
+    ctx.render(loginTemplate(submitHandler(onLogin), errorMessage));
 
     async function onLogin({ email, password }) {
         if (email == '' || password == '') {
-            return alert('All fields are required')
+            errorMessage = 'All fields are required';
+            ctx.render(loginTemplate(submitHandler(onLogin), errorMessage));
+            return;
         };
 
         await login(email, password);
-        ctx.page.redirect('/blogs')
+        ctx.page.redirect('/blogs');
     }
 };
-
