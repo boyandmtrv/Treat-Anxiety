@@ -43,6 +43,26 @@
 }
 
 
+.instagram-icon i {
+    font-size: 2em;
+    margin-top: 5px;
+    color: #7C6096;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.instagram-icon-top i {
+    font-size: 2.3em;
+    color: #f3f3f3;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.instagram-icon-top:hover i,
+.instagram-icon-top:focus i {
+    color: #C13584;
+    transform: scale(1.1);
+}
+
+
 @media (max-width: 991px) {
     .navbar-logo img {
         margin-top: -15px;
@@ -62,5 +82,9 @@
         margin-bottom: 20px;
         color: #272727;
         font-size: 30px;
+    }
+
+    .instagram-icon i {
+        display: none
     }
 }
