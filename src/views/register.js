@@ -2,7 +2,7 @@ import { register } from '../data/users.js';
 import { html } from '../lib/lit-html.js';
 import { submitHandler } from '../util.js';
 
-const registerTemplate = (onSubmit) => html`
+const registerTemplate = (onSubmit, errorMessage) => html`
     <div class="row vh-100 g-0">
             <div class="bg-forms row align-items-center justify-content-center h-100 g-0 px-4 px-sm-0">
                 <div class="col col-sm-6 col-lg-4 col-xl-3">
@@ -58,6 +58,11 @@ const registerTemplate = (onSubmit) => html`
                                 placeholder="Repeat Password"
                             />
                         </div>
+                        ${errorMessage ? html`
+                        <div class="alert alert-danger" role="alert">
+                            ${errorMessage}
+                        </div>
+                    ` : ''}
                         <div class="input-group mb-3 d-flex justify-content-left">
                             <input type="checkbox" class="form-check-input" id="formCheck">
                             <label for="formCheck" class="form-check-label text-secondary">
@@ -81,31 +86,49 @@ const registerTemplate = (onSubmit) => html`
 `
 
 export function registerView(ctx) {
+
+    let errorMessage = '';
+
+    const updateErrorMessage = (message) => {
+        errorMessage = message;
+        ctx.render(registerTemplate(submitHandler(onRegister), errorMessage));
+    };
+
     ctx.render(registerTemplate(submitHandler(onRegister)));
 
     async function onRegister({ email, username, password, repass }) {
-        if (email == '' || username == '', password == '') {
-            return alert('All fields are required')
-        };
+        if (email == '' || username == '' || password == '') {
+            updateErrorMessage('All fields are required');
+            return;
+        }
 
         if (username.length <= 3) {
-            return alert('Username must be at least 4 characters long')
-        };
+            updateErrorMessage('Username must be at least 4 characters long');
+            return;
+        }
 
         if (email.length <= 5) {
-            return alert('Invalid email')
-        };
+            updateErrorMessage('Invalid email');
+            return;
+        }
 
         if (password.length <= 5) {
-            return alert('Password must be at least 6 characters long')
-        };
+            updateErrorMessage('Password must be at least 6 characters long');
+            return;
+        }
 
         if (password != repass) {
-            return alert('Passwords must match')
-        };
+            updateErrorMessage('Passwords must match');
+            return;
+        }
 
-        await register(email, username, password);
-        ctx.page.redirect('/blogs')
+        try {
+            await register(email, username, password);
+            ctx.page.redirect('/blogs');
+        } catch (err) {
+            // Handle registration errors (network issues, server errors, etc.)
+            updateErrorMessage(err.message);
+        }
     }
 };
 

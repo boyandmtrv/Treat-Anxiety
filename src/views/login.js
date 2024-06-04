@@ -67,6 +67,11 @@ const loginTemplate = (onSubmit, errorMessage) => html`
 export function loginView(ctx) {
     let errorMessage = '';
 
+    const updateErrorMessage = (message) => {
+        errorMessage = message;
+        ctx.render(loginTemplate(submitHandler(onLogin), errorMessage));
+    };
+
     ctx.render(loginTemplate(submitHandler(onLogin), errorMessage));
 
     async function onLogin({ email, password }) {
