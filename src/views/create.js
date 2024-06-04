@@ -18,6 +18,10 @@ const createTeplate = (onSubmit) => html`
                     <label for="author" class="label">author</label>
                 </div>
                 <div class="form-field col-lg-6">
+                    <textarea name="resources" class="input-text" id="resources"></textarea>
+                    <label for="resources" class="label">resources</label>
+                </div>
+                <div class="form-field col-lg-6">
                     <input type="number" name="blogCount" class="input-text" id="blogCount">
                     <label for="blogCount" class="label">Minutes to read</label>
                 </div>
@@ -32,25 +36,27 @@ const createTeplate = (onSubmit) => html`
         </div>
     </div>
     </form> 
-`   
+`
 
 export function createView(ctx) {
     ctx.render(createTeplate(submitHandler(onSubmit)));
 
-   async function onSubmit({ name, author, blogCount, description }) {
-    blogCount = parseInt(blogCount);
-    if (name == '' || author == '' || Number.isNaN(blogCount) || description == '') {
-        return alert('All fields are required');
+    async function onSubmit({ name, author, resources, blogCount, description }) {
+        blogCount = parseInt(blogCount);
+        if (name == '' || author == '' || resources == '' || Number.isNaN(blogCount) || description == '') {
+            return alert('All fields are required');
+        }
+
+        const userId = ctx.user?.objectId;
+
+        description = description.replace(/\n/g, '<br>');
+        resources = resources.replace(/\n/g, '<br>');
+
+
+        const result = await blogService.create({ name, author, resources, blogCount, description }, userId);
+
+        ctx.page.redirect('/blogs/' + result.objectId);
     }
-    
-    const userId = ctx.user?.objectId;
-
-    description = description.replace(/\n/g, '<br>');
-
-    const result = await blogService.create({ name, author, blogCount, description }, userId);
-
-    ctx.page.redirect('/blogs/' + result.objectId);
-}
 
 }
 

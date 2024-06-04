@@ -22,6 +22,10 @@ const editTemplate = (blog, onSubmit) => html`
                     <label for="author" class="label">author</label>
                 </div>
                 <div class="form-field col-lg-6">
+                    <textarea name="resources" class="input-text" id="resources" .value=${blog.resources}></textarea>
+                    <label for="resources" class="label">resources</label>
+                </div>
+                <div class="form-field col-lg-6">
                     <input type="number" name="blogCount" class="input-text" id="blogCount" .value=${blog.blogCount}>>
                     <label for="blogCount" class="label">Minutes to read</label>
                 </div>
@@ -42,20 +46,21 @@ export function editView(ctx) {
     const id = ctx.params.id;
     ctx.render(editTemplate(ctx.data, submitHandler(onSubmit)));
 
-    async function onSubmit({ name, author, blogCount, description, readyForRead }) {
+    async function onSubmit({ name, author,resources, blogCount, description, readyForRead }) {
         blogCount = parseInt(blogCount);
         readyForRead = Boolean(readyForRead);
 
-        if (name == '' || author == '' || Number.isNaN(blogCount) || description == '') {
+        if (name == '' || author == '' || resources == '' || Number.isNaN(blogCount) || description == '') {
             return alert('All fields are required');
         }
 
         const userId = ctx.user.objectId;
 
         description = description.replace(/\n/g, '<br>');
+        resources = resources.replace(/\n/g, '<br>');
 
 
-        await blogService.update(id, { name, author, blogCount, description, readyForRead }, userId);
+        await blogService.update(id, { name, author, resources, blogCount, description, readyForRead }, userId);
 
         ctx.page.redirect('/blogs/' + id);
     };

@@ -119,6 +119,22 @@
     font-size: 20px;
 }
 
+.resources-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1px;
+}
+
+.resources-btn {
+    background-color: #7C6096;
+    width: 100%;
+}
+
+.expanded-resourses {
+    background-color: transparent;
+}
+
 
 .time-posted {
     font-size: 15px;
