@@ -127,7 +127,8 @@
 }
 
 .resources-btn {
-    background-color: #7C6096;
+    color: #7C6096;
+    background-color: transparent;
 }
 
 .expanded-resourses {

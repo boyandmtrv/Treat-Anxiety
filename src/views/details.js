@@ -34,9 +34,9 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 <!-- <p class="text-center">Minutes to read: ${blog.blogCount}</p> -->
                 <p class="lead" .innerHTML=${blog.description}></p>
                 <div class="d-flex justify-content-center">
-                    ${hasUser && !isOwner ? html`
+                    <!-- ${hasUser && !isOwner ? html`
                         <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
-                    }
+                    } -->
                     ${isOwner ? html`
                         <a class="btn btn-warning mx-2" href="/edit/${blog.objectId}">Edit</a>
                         <button class="btn btn-danger mx-2" @click=${onDelete}>Delete</button>` : null
