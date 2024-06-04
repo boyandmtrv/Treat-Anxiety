@@ -46,15 +46,15 @@ const homeTemplate = () => html`
                     style="background: url(src/img/third-main.jpg)">
                     <div class="container">
                         <h2>You are not alone</h2>
-                        <p>we aim to remind you that you are not alone. We strive to uncover the hidden peace within each of us, promoting the idea that our thoughts do not define us.</p>
+                        <p>Remember, you are not alone. There is peace within you, and your thoughts do not define who you are.</p>
                     </div>  
                 </div>
                 <div 
                     class="carousel-item"
                     style="background: url(src/img/fourth-main.jpg)">
                     <div class="container container-quote">
-                        <p class="quote-text">“Worrying is carrying tomorrow’s load with today’s strength — carrying two days at once. It is moving into tomorrow ahead of time. Worrying doesn’t empty tomorrow of its sorrow, it empties today of its strength.”</p>
-                        <h2 class="quote-author">— Corrie ten Boom</h2>
+                        <p class="quote-text">"The greatest weapon against stress is our ability to choose one thought over another."</p>
+                        <h2 class="quote-author">— William James</h2>
                     </div>  
                 </div>
                 <div 
