@@ -121,18 +121,29 @@
 
 .resources-dropdown {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    font-size: 1px;
+    font-size: 14px;
 }
 
 .resources-btn {
     background-color: #7C6096;
-    width: 100%;
 }
 
 .expanded-resourses {
-    background-color: transparent;
+    font-size: 14px; 
+    white-space: normal;
+    background-color: #f3f3f3b2;
+    border: none;
+}
+
+.resources-dropdown .dropdown-menu {
+    max-width: 100%;
+}
+
+.dropdown-item a {
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 

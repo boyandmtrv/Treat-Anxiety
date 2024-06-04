@@ -52,6 +52,11 @@ small {
     color: #272727;
 }
 
+.alert {
+    background-color: red;
+    margin-top: 50%;
+}
+
 
 .divider-content-center {
     position: absolute;

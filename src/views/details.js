@@ -167,21 +167,22 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                             </div>
                         </div>
                     </div>
-                    <div class="resources-dropdown dropdown mt-3">
-                            <button class="resources-btn btn btn-secondary dropdown-toggle" type="button" id="source-dropdown" data-bs-toggle="dropdown">
-                                Resourses
-                            </button>
-                        <div class="expanded-resourses dropdown-menu" aria-labelledBy="source-dropdown">
-                            <div class="dropdown-item">
-                                <li>
-                                    <a href=${blog.resources}>${blog.resources}</a>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
+        <div class="resources-dropdown dropdown mt-3">
+                        <button class="resources-btn btn btn-secondary dropdown-toggle" type="button" id="source-dropdown" data-bs-toggle="dropdown">
+                            Resources
+                        </button>
+                        <div class="expanded-resourses dropdown-menu" aria-labelledby="source-dropdown">
+                            ${blog.resources.split('<br>').map(resource => html`
+                                <div class="dropdown-item">
+                                    <a href=${resource} target="_blank">${resource}</a>
+                                </div>
+                            `)}
+                        </div>
+                    </div>
     </div>
 </div>
 `;
