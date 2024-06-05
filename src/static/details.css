@@ -374,12 +374,13 @@
         flex-direction: column;
         justify-content: start;
         align-items: start;
-        text-align: start;
+        text-align: center;
         margin-right: 150px;
         margin-top: 220px;
     }
 
     .instagram-icon-details i {
+        padding-left: 30px;
         margin-right: 100px;
     }
 

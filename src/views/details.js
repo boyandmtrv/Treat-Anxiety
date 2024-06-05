@@ -37,7 +37,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 
                 <div class="content d-flex justify-content-center">
                 <div class="instagram-icon-details text-center mb-3">
-                    <a href="https://instagram.com/yourprofile" target="_blank">
+                    <a href="https://www.instagram.com/treatanxiety/" target="_blank">
                         <i class='bx bxl-instagram bx-lg'></i>
                     </a>
                     <p class="instagram-text">Have something in mind?</p>
