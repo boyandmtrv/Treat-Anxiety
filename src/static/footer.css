@@ -1,0 +1,27 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f3f3f365; 
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    z-index: 1;
+    font-size: 14px;
+}
+
+footer .container {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+@media (max-width: 991px) {
+    footer {
+        font-size: 10px;
+        height: 15px;
+    }
+    
+}

@@ -34,7 +34,15 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 <hr class="divider" >
                 <!-- <p class="text-center">Minutes to read: ${blog.blogCount}</p> -->
                 <p class="lead" .innerHTML=${blog.description}></p>
-                <div class="d-flex justify-content-center">
+                
+                <div class="content d-flex justify-content-center">
+                <div class="instagram-icon-details text-center mb-3">
+                    <a href="https://instagram.com/yourprofile" target="_blank">
+                        <i class='bx bxl-instagram bx-lg'></i>
+                    </a>
+                    <p class="instagram-text">Have something in mind?</p>
+
+                </div>
                     <!-- ${hasUser && !isOwner ? html`
                         <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
                     } -->
@@ -44,7 +52,10 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                     }
                 </div>
 
+               
+
                 <div class="popup-sections">
+                    
                     <div class="buttons-direction">
                         <button 
                             class="show-btn navbar-toggler shadow-none section-buttons" 
