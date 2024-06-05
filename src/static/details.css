@@ -52,6 +52,34 @@
     color: #272727;
 }
 
+.content {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.instagram-icon-details {
+    position: absolute;
+    margin-top: 200px;   
+}
+
+.instagram-icon-details i {
+    color:#7C6096;
+    transition: color 0.3s, transform 0.3s;
+
+}
+
+.instagram-text {
+    margin-top: 10px;
+}
+
+
+.instagram-icon-details:hover i,
+.instagram-icon-details:focus i {
+    color: #C13584;
+    transform: scale(1.1);
+}
+
 
 .details-col .author-text {
     color: #27272786;
@@ -116,6 +144,11 @@
     color: #f3f3f3;
 }
 
+.instagram-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .popup-sections {
     margin-top: 2rem;
@@ -322,6 +355,10 @@
         font-size: 14px;
     }
 
+    .popup-sections {
+       margin-left: 70px;
+    }
+    
     .popup-sections .show-btn {
         font-size: 12px;
     }
@@ -329,6 +366,33 @@
 
     .details-col .btn-blogs {
         font-size: 12px;
+    }
+
+    
+    .instagram-icon-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        text-align: start;
+        margin-right: 150px;
+        margin-top: 220px;
+    }
+
+    .instagram-icon-details i {
+        margin-right: 100px;
+    }
+
+    .instagram-icon-details .instagram-text {
+        font-size: 12px;
+        margin-top: -1px;
+        width: 100px;
+        text-align: start;
+        margin-left: 10px;
+    }
+
+    .resources-btn{
+        margin-left: 10px;
     }
 
     .divider {
