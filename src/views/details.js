@@ -27,10 +27,11 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
 <div id="progress-bar"></div>
 <div class="full-page-overlay">
      <div class="details-container container" id="detailsContainer">
-        <div class="row">
+        <div class="details-row row">
             <div class="details-col bg-transparent">
             ${highlightLastWord(blog.name)}
                 <p class="author-text text-center">by ${blog.author}</p>
+                <hr class="divider" >
                 <!-- <p class="text-center">Minutes to read: ${blog.blogCount}</p> -->
                 <p class="lead" .innerHTML=${blog.description}></p>
                 <div class="d-flex justify-content-center">
@@ -44,15 +45,18 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 </div>
 
                 <div class="popup-sections">
-                    <button 
-                        class="show-btn navbar-toggler shadow-none section-buttons" 
-                        type="button" 
-                        data-bs-toggle="offcanvas" 
-                        data-bs-target="#offcanvasNavbarComments" 
-                        aria-controls="offcanvasNavbarComments" 
-                        aria-label="Toggle navigation">
-                        Show comments
-                    </button>
+                    <div class="buttons-direction">
+                        <button 
+                            class="show-btn navbar-toggler shadow-none section-buttons" 
+                            type="button" 
+                            data-bs-toggle="offcanvas" 
+                            data-bs-target="#offcanvasNavbarComments" 
+                            aria-controls="offcanvasNavbarComments" 
+                            aria-label="Toggle navigation">
+                            Show comments
+                            <i class='drop-arrow bx bxs-chevron-right'></i>
+                        </button>
+                    </div>
 
                     <div class="bg-comment-section offcanvas offcanvas-end" tabindex="-1" 
                         id="offcanvasNavbarComments" aria-labelledby="offcanvasNavbarLabelComments" >
@@ -108,15 +112,18 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                         </div>
                     </div>
 
-                    <button 
-                        class="show-btn navbar-toggler shadow-none section-buttons" 
-                        type="button" 
-                        data-bs-toggle="offcanvas" 
-                        data-bs-target="#offcanvasNavbarReviews" 
-                        aria-controls="offcanvasNavbarReviews" 
-                        aria-label="Toggle navigation">
-                        Show reviews
-                    </button>
+                    <div class="buttons-direction">
+                        <button 
+                            class="show-btn navbar-toggler shadow-none section-buttons" 
+                            type="button" 
+                            data-bs-toggle="offcanvas" 
+                            data-bs-target="#offcanvasNavbarReviews" 
+                            aria-controls="offcanvasNavbarReviews" 
+                            aria-label="Toggle navigation">
+                            Show reviews
+                            <i class='drop-arrow bx bxs-chevron-right'></i>
+                        </button>
+                    </div>
 
                     <div class="bg-review-section offcanvas offcanvas-end" tabindex="-1" 
                         id="offcanvasNavbarReviews" aria-labelledby="offcanvasNavbarLabelReviews">
@@ -172,20 +179,21 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
             </div>
         </div>
         <div class="resources-dropdown dropdown mt-3">
-                        <button class="resources-btn btn btn-secondary dropdown-toggle" type="button" id="source-dropdown" data-bs-toggle="dropdown">
-                            Resources
-                        </button>
-                        <div class="expanded-resourses dropdown-menu" aria-labelledby="source-dropdown">
-                            ${blog.resources.split('<br>').map(resource => html`
-                                <div class="dropdown-item">
-                                    <a href=${resource} target="_blank">${resource}</a>
-                                </div>
-                            `)}
-                        </div>
+            <button class="resources-btn btn btn-secondary dropdown-toggle" type="button" id="source-dropdown" data-bs-toggle="dropdown">
+                Resources
+            </button>
+            <div class="expanded-resourses dropdown-menu" aria-labelledby="source-dropdown">
+                ${blog.resources.split('<br>').map(resource => html`
+                    <div class="dropdown-item">
+                        <a href=${resource} target="_blank">${resource}</a>
                     </div>
+                `)}
+            </div>
+        </div>
     </div>
 </div>
 `;
+
 
 function highlightLastWord(name) {
     const words = name.split(' ');

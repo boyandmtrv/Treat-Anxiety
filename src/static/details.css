@@ -37,6 +37,11 @@
     color: #7C6096;
 }
 
+.details-container {
+    margin-top: 5rem;
+    position: relative;
+}
+
 .details-col {
     padding: 50px;
     display: flex;
@@ -47,9 +52,17 @@
     color: #272727;
 }
 
+
 .details-col .author-text {
     color: #27272786;
     margin-top: 10px;
+}
+
+.divider {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    color: #272727;
 }
 
 #progress-bar {
@@ -104,15 +117,20 @@
 }
 
 
-.details-container {
-    margin-top: 5rem;
-    position: relative;
-}
-
 .popup-sections {
     margin-top: 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%; 
+    text-align: right; 
 }
+
+.popup-sections .drop-arrow{
+  font-size: 20px;
+  color: #272727;
+}
+
 
 .bg-comment-section,
 .bg-review-section {
@@ -220,6 +238,15 @@
     text-align: left;
 }
 
+/* .buttons-direction {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    text-align: end;
+} */
+
+
 .popup-sections button {
     margin: .5rem;
     padding: 0.5rem 1rem;
@@ -232,12 +259,12 @@
 
 .popup-sections .show-btn {
     font-weight: bold;
-    background-color: #7C6096;
+    color: #7C6096;
     font-size: 15px;
 }
 
 .popup-sections button:hover {
-    background-color: #564d97;
+    color: #272727;
 }
 
 .popup-sections .btn-submit {
@@ -304,8 +331,14 @@
         font-size: 12px;
     }
 
-
-
+    .divider {
+        height: 0;
+    }
+    .author-text {
+        font-size: 12px;
+        margin-bottom: -5px;
+    }
+    
     .time-posted,
     .time-posted-review {
         font-size: 12px;
@@ -375,7 +408,7 @@
 .rating>label:hover~label,
 .rating>input:checked~label {
     opacity: 1;
-    color: #7C6096;
+    color: #CCC48B;
 }
 
 .rating>input {
