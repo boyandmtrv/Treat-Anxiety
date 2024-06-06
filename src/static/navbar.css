@@ -29,6 +29,10 @@
     align-items: center;
 }
 
+.navbar-nav {
+    margin-left: 200px;
+}
+
 .navbar-nav a {
     color: #272727;
 }
@@ -72,7 +76,10 @@
     .navbar-nav a {
         color: #f3f3f3;
     }
-
+    .navbar-nav {
+        margin-left: 0px;
+    }
+    
     
     .navbar-bottom a{
         color: #f3f3f3;

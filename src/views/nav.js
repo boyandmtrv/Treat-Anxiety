@@ -37,6 +37,9 @@ export const navTemplate = (hasUser, userId) => {
                             <li class="nav-item mx-4" data-bs-dismiss="offcanvas">
                                 <a class="nav-link" href="/blogs">Blogs</a>
                             </li>
+                            <li class="nav-item mx-4" data-bs-dismiss="offcanvas">
+                                <a class="nav-link" href="/about">About</a>
+                            </li>
                             ${hasUser
                                 ? html`
                                         ${userId === SPECIAL_USER_ID
