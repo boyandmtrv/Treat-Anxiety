@@ -58,27 +58,33 @@
     flex-direction: column;
 }
 
-.instagram-icon-details {
-    position: absolute;
-    margin-top: 200px;   
+.instagram-icon-details img {
+    width: 150px;
+    margin-bottom: -250px;
 }
 
-.instagram-icon-details i {
-    color:#7C6096;
-    transition: color 0.3s, transform 0.3s;
-
+.disclaimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-.instagram-text {
-    margin-top: 10px;
+.disclaimer .header {
+    border: 1px solid #7C6096;
+    border-radius: 5px;
+
+    padding: 0px 10px 0 10px;
+    color: #272727;
+    font-size: 22px;
 }
 
-
-.instagram-icon-details:hover i,
-.instagram-icon-details:focus i {
-    color: #C13584;
-    transform: scale(1.1);
+.disclaimer .content {
+    font-size: 17px;
+    color: #272727;
 }
+
 
 
 .details-col .author-text {
@@ -180,6 +186,7 @@
 .resources-btn {
     color: #7C6096;
     background-color: transparent;
+    margin-top: -210px;
 }
 
 .expanded-resourses {
@@ -344,6 +351,22 @@
         margin-top: 20px;
     }
 
+    .instagram-icon-details img {
+        width: 100px;
+    }
+    
+    .disclaimer .header {
+       
+        font-size: 18px;
+    }
+    
+    .disclaimer .content {
+        text-align:justify;
+        font-size: 13px;
+        
+    }
+    
+
     .popup-sections button {
         margin: 0.5rem;
         font-size: 12px;
@@ -368,29 +391,6 @@
         font-size: 12px;
     }
 
-    
-    .instagram-icon-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        text-align: center;
-        margin-right: 150px;
-        margin-top: 220px;
-    }
-
-    .instagram-icon-details i {
-        padding-left: 30px;
-        margin-right: 100px;
-    }
-
-    .instagram-icon-details .instagram-text {
-        font-size: 12px;
-        margin-top: -1px;
-        width: 100px;
-        text-align: start;
-        margin-left: 10px;
-    }
 
     .resources-btn{
         margin-left: 10px;

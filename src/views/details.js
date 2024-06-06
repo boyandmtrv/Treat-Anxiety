@@ -35,14 +35,7 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 <!-- <p class="text-center">Minutes to read: ${blog.blogCount}</p> -->
                 <p class="lead" .innerHTML=${blog.description}></p>
                 
-                <div class="content d-flex justify-content-center">
-                <div class="instagram-icon-details text-center mb-3">
-                    <a href="https://www.instagram.com/treatanxiety/" target="_blank">
-                        <i class='bx bxl-instagram bx-lg'></i>
-                    </a>
-                    <p class="instagram-text">Have something in mind?</p>
-
-                </div>
+                <div class="content d-flex">
                     <!-- ${hasUser && !isOwner ? html`
                         <a class="btn btn-blogs mx-2" href="/blogs">Back to all blogs</a>` : null
                     } -->
@@ -52,10 +45,12 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                     }
                 </div>
 
+                <div class="instagram-icon-details text-center mb-3">
+                    <img src="../../src/img/logo.svg" alt="">
+                </div>
                
 
                 <div class="popup-sections">
-                    
                     <div class="buttons-direction">
                         <button 
                             class="show-btn navbar-toggler shadow-none section-buttons" 
@@ -185,11 +180,9 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
-        </div>
-        <div class="resources-dropdown dropdown mt-3">
+            <div class="resources-dropdown dropdown mt-3">
             <button class="resources-btn btn btn-secondary dropdown-toggle" type="button" id="source-dropdown" data-bs-toggle="dropdown">
                 Resources
             </button>
@@ -201,6 +194,10 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                 `)}
             </div>
         </div>
+    </div>
+    <div class="disclaimer">
+        <p class="header">Disclaimer:</p>
+        <p class="content">The content provided on this blog is for informational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. All information is based on research and experience, and references to external resources are provided for additional information.</p>
     </div>
 </div>
 `;
