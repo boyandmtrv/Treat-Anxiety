@@ -112,7 +112,9 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             </div>
                                             <button class="btn-submit btn btn-primary" type="submit">Submit Comment</button>
                                         </form>
-                                    ` : html`<p>Please log in to comment.</p>`}
+                                    ` : html`<p>Please log in to comment or you can send a message, by clicking: </p>
+                                    <a class="instagram-icon-section px-3 py-1 rounded-4 text-decoration-none" href="https://www.instagram.com/treatanxiety/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                    `}
                                 </section>
                             </div>
                         </div>
@@ -175,7 +177,8 @@ const detailsTemplate = (blog, hasUser, isOwner, onDelete, comments, reviews, on
                                             </div>
                                             <button class="btn-submit btn btn-primary" type="submit">Submit Review</button>
                                         </form>
-                                    ` : html`<p>Please log in to write a review.</p>`}
+                                    ` : html`<p>Please log in to write a review, or you can send a message, by clicking:</p>
+                                    <a class="instagram-icon-section px-3 py-1 rounded-4 text-decoration-none" href="https://www.instagram.com/treatanxiety/" target="_blank"><i class='bx bxl-instagram'></i></a>`}
                                 </section>
                             </div>
                         </div>

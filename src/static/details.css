@@ -71,6 +71,23 @@
     text-align: center;
 }
 
+.instagram-icon-section {
+    display: flex;
+}
+
+.instagram-icon-section i {
+    font-size: 2em;
+    color: #f3f3f3;
+    transition: color 0.3s, transform 0.3s;
+}
+
+
+.instagram-icon-section:hover i,
+.instagram-icon-section:focus i {
+    color: #C13584;
+    transform: scale(1.1);
+}
+
 .disclaimer .header {
     border: 1px solid #7C6096;
     border-radius: 5px;
@@ -440,6 +457,11 @@
     .last-word {
         font-size: 55px;
     }
+
+    .instagram-icon-section i {
+        font-size: 1.em;
+    }
+    
 }
 
 .user-review {
