@@ -16,6 +16,7 @@ import { hasUser, isOwner } from './middlewares/guards.js';
 import { detailsView } from './views/details.js';
 import { editView } from './views/edit.js';
 import { notFoundView } from './views/notFound.js'; 
+import { aboutView } from './views/about.js';
 
 page(addRender(document.querySelector('main'), document.querySelector('header')));
 page(addSession(getUserData));
@@ -24,6 +25,7 @@ page(addUserNav(navTemplate))
 page('/', homeView);
 page('/create', hasUser(), createView);
 page('/blogs', blogView);
+page('/about', aboutView);
 page('/blogs/:id', preloader('id', 'blogs'), detailsView);
 page('/edit/:id', preloader('id', 'blogs'), isOwner(), editView);
 page('/login', loginView);
