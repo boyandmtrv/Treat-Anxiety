@@ -3,45 +3,50 @@ import { submitHandler } from '../util.js';
 
 import * as blogService from '../data/blog.js';
 
-const editTemplate = (blog, onSubmit) => html`
-  <form @submit=${onSubmit}>
-    <div class="create-blog">
-        <h1 class="create-title">Edit blog</h1>
-        <div class="container">
-        <div class="form-field col-lg-6">
-                    <input type="checkbox" name="readyForRead" .checked=${blog.readyForRead}>
-                    <label for="readyForRead" class="label">Ready for read</label>
-                </div>
-            <div class="create-form row">
-                <div class="form-field col-lg-6">
-                    <input type="text" name="name" class="input-text" id="name" .value=${blog.name}>
-                    <label for="name" class="label">name</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <input type="text" name="author" class="input-text" id="author" .value=${blog.author}>
-                    <label for="author" class="label">author</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <textarea name="resources" class="input-text" id="resources" .value=${blog.resources}></textarea>
-                    <label for="resources" class="label">resources</label>
-                </div>
-                <div class="form-field col-lg-6">
-                    <input type="number" name="blogCount" class="input-text" id="blogCount" .value=${blog.blogCount}>>
-                    <label for="blogCount" class="label">Minutes to read</label>
-                </div>
-                <div class="form-field col-lg-12">
-                    <textarea name="description" class="input-text" id="description" .value=${blog.description}></textarea>
-                    <label for="description" class="label">description</label>
-                </div>
-                <div class="form-field col-lg-12">
-                    <button class="create-submit-btn">Save changes</button>
-                </div>
+const editTemplate = (blog, onSubmit) => {
+    const resourcesValue = blog.resources ? blog.resources.replace(/<br>/g, '\n') : '';
+    const descriptionValue = blog.description ? blog.description.replace(/<br>/g, '\n') : '';
+  
+    return html`
+      <form @submit=${onSubmit}>
+        <div class="create-blog">
+          <h1 class="create-title">Edit blog</h1>
+          <div class="container">
+            <div class="form-field col-lg-6">
+              <input type="checkbox" name="readyForRead" .checked=${blog.readyForRead}>
+              <label for="readyForRead" class="label">Ready for read</label>
             </div>
+            <div class="create-form row">
+              <div class="form-field col-lg-6">
+                <input type="text" name="name" class="input-text" id="name" .value=${blog.name}>
+                <label for="name" class="label">name</label>
+              </div>
+              <div class="form-field col-lg-6">
+                <input type="text" name="author" class="input-text" id="author" .value=${blog.author}>
+                <label for="author" class="label">author</label>
+              </div>
+              <div class="form-field col-lg-6">
+                <textarea name="resources" class="input-text" id="resources">${resourcesValue}</textarea>
+                <label for="resources" class="label">resources</label>
+              </div>
+              <div class="form-field col-lg-6">
+                <input type="number" name="blogCount" class="input-text" id="blogCount" .value=${blog.blogCount}>>
+                <label for="blogCount" class="label">Minutes to read</label>
+              </div>
+              <div class="form-field col-lg-12">
+                <textarea name="description" class="input-text" id="description">${descriptionValue}</textarea>
+                <label for="description" class="label">description</label>
+              </div>
+              <div class="form-field col-lg-12">
+                <button class="create-submit-btn">Save changes</button>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    </form> 
-`
-
+      </form>
+    `;
+  };
+  
 export function editView(ctx) {
     const id = ctx.params.id;
     ctx.render(editTemplate(ctx.data, submitHandler(onSubmit)));
