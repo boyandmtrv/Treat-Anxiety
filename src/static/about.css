@@ -96,6 +96,12 @@
     transform: scale(1.1);
 }
 
+.left-side, 
+.right-side,
+.bottom-container {
+    text-align: justify;
+} 
+
 @media (max-width: 600px) {
     .left-right-container {
         flex-direction: column; 
@@ -110,7 +116,22 @@
         margin-top: 0; 
     }
 
+    .right-side {
+        margin-left: -1%;
+    }
+
     .center-content h1 {
         font-size: 1.5em;
     }
+
+    .instagram-icon-about i {
+        font-size: 50px;
+    }
+
+    .big-bottom {
+        width: 200px;
+        text-align: center;
+    }
+
+   
 }
