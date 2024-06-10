@@ -30,7 +30,7 @@
 }
 
 .navbar-nav {
-    margin-left: 200px;
+    margin-left: 100px;
 }
 
 .navbar-nav a {
@@ -54,18 +54,10 @@
     transition: color 0.3s, transform 0.3s;
 }
 
-.instagram-icon-top i {
-    font-size: 2.3em;
+.instagram-text-top {
     color: #f3f3f3;
-    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
 }
-
-.instagram-icon-top:hover i,
-.instagram-icon-top:focus i {
-    color: #C13584;
-    transform: scale(1.1);
-}
-
 
 @media (max-width: 991px) {
     .navbar-logo img {

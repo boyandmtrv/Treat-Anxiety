@@ -24,7 +24,7 @@ export const navTemplate = (hasUser, userId) => {
                      id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header text-white border-bottom">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">\
-                        <a class="instagram-icon-top px-3 py-1 rounded-4 text-decoration-none" href="https://www.instagram.com/treatanxiety/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                        <a class="instagram-text-top px-3 py-1 rounded-4 text-decoration-none" href="/">Treat Anxiety</a>
                         </h5>
                         <button type="button" class="btn-close btn-close-white shadow-none" 
                                 data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -61,7 +61,7 @@ export const navTemplate = (hasUser, userId) => {
                                     <a class="text-decoration-none px-3" href="/login" style="margin-left: 50px">Login</a>
                                     <a class="px-3 py-1 rounded-4 text-decoration-none" href="/register">Register</a>
                                 `}
-                                <a class="instagram-icon px-3 py-1 rounded-4 text-decoration-none" href="https://www.instagram.com/treatanxiety/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                <!-- <a class="instagram-icon px-3 py-1 rounded-4 text-decoration-none" href="https://www.instagram.com/treatanxiety/" target="_blank"><i class='bx bxl-instagram'></i></a> -->
 
                         </div>
                     </div>

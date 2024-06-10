@@ -9,17 +9,15 @@ const aboutTemplate = () => html`
                         <div class="left-side">
                             <h1>About</h1>
                             <p>Welcome to treatanxiety, a dedicated space where we explore the multifaceted world of anxiety. Our mission is to provide a safe, supportive, and informative environment where individuals can share their experiences, gain insights, and find solace in knowing they are not alone.</p>
-                            <p>Explore a range of topics from the physiological responses to anxiety, to psychological patterns and coping mechanisms.</p>
-                            <p>Read and share personal stories that highlight the diverse experiences of those living with anxiety.</p>
-                            <p>Access practical tools and resources designed to help manage anxiety, from mindfulness exercises to cognitive-behavioral techniques.</p>
+                            <p>At treatanxiety, we understand that anxiety is a complex and deeply personal experience. Each person's journey with anxiety is unique, and we are here to support you every step of the way.</p>
+                            <p>Explore and contribute personal stories that shed light on the varied experiences of individuals living with anxiety.</p>
                         </div>
                         <div class="right-side">
                             <h1>We aim to:</h1>
                             <ul>
-                                <li>Educate: Provide thorough explanations of anxiety-related topics such as the Fight/Flight response, cognitive distortions, and more. Our blog is rich with articles that break down these concepts into easily understandable information.</li>
+                                <li>Educate: Provide clear, accessible explanations of anxiety-related concepts. Our blog features articles that break down complex ideas into easily understandable information, empowering readers with knowledge to manage their anxiety.</li>
                                 <li>Empower: Encourage individuals to share their personal journeys with anxiety, fostering a sense of community and mutual support.</li>
-                                <li>Inspire: Offer insights and strategies for finding peace and managing anxiety, reminding everyone that "you are not your thoughts."</li>
-                                <li>Inspire: Offer insights and strategies for finding peace and managing anxiety, reminding everyone that "you are not your thoughts."</li>
+                                <li>Inspire: Help individuals identify symptoms of anxiety rather than feeling something is inherently wrong with them, fostering a sense of community and mutual support.</li>
                             </ul>
                         </div>
                     </div>
