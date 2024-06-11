@@ -1,4 +1,3 @@
-import { inject } from '@vercel/analytics';
 import page from './lib/page.mjs';
 import * as api from './data/users.js';
 import { addRender } from './middlewares/render.js';
@@ -18,8 +17,6 @@ import { detailsView } from './views/details.js';
 import { editView } from './views/edit.js';
 import { notFoundView } from './views/notFound.js'; 
 import { aboutView } from './views/about.js';
-
-inject()
 
 page(addRender(document.querySelector('main'), document.querySelector('header')));
 page(addSession(getUserData));
